@@ -1,17 +1,30 @@
-# HISTORY//QUEST v6 — Post-Classical History (600–1450 CE)
+# HISTORY//QUEST v8 — Story Theater + Post-Classical History (600–1450 CE)
 
 **Play the live game:** https://jiuxiao-d.github.io/history-quest-post-classical/
 
 An offline-first, no-build English historical vocabulary game drawn from the user's 10-page, 110-term Post-Classical handout. The same 110 terms and 276 English rubric checkpoints power each mode.
 
-## Daily vocabulary walkthrough (new in v6)
+## 🎞 Story Theater (new in v8)
 
-Before the first question of each local calendar day, the site automatically opens **📚 Vocabulary First**: 110 terms in their source-handout order, 10 definitions per page, 11 pages total. Each definition is visible, with an expandable list of PDF-derived English checkpoints. Mark each group of ten as reviewed before moving on. This is a study survey, not a scored quiz: no XP, mastery or flashcard schedule changes.
+The previous Story Mode has been **fully replaced** by a responsive PPT-like **36-slide visual presentation**, organized into **9 connected historical chapters**. The presentation references every one of the **110 vocabulary terms** from the handout at least once. Each slide displays **up to three short bullets** beside a large, custom SVG illustration (trade routes, empires, canals, hierarchies, timelines, splits, shipping, farms or conceptual networks).
 
-It gates **Recall Battle, MCQ Arena, SEQ Boss, Mock Exam, Rival Arena, and Flashcard Lab** until the daily survey is complete. History & Backup, Codex and AI Settings remain accessible. Progress is autosaved on each page, so navigation and reloading resume the same batch. After completing all 110, question modes become available until the next local day. The Vocabulary First button also allows optional extra browsing. The completed daily walkthrough is recorded in history.
+Slide-specific, source-grounded **English speaker notes** are kept in a collapsible transcript so the slideshow remains clean and visually focused. A small memory hook reinforces each idea.
+
+**Voice playback:**
+- **🔊 Read this slide** reads a single slide without advancing.
+- **▶ Auto-play** narrates a slide and moves to the next one **when the browser speech engine reports that the narration has finished**, not on a fixed timer. The play session concludes on the final slide.
+- **⏸ Pause / ▶ Resume** suspends or resumes the current speech utterance. **Voice speed** offers 0.8×, 1.0×, 1.15×, or 1.3×. Use **Previous/Next**, chapter navigation, or the keyboard arrow keys.
+- Playback must be started by user interaction because browsers restrict unsolicited speech. Text-to-speech requires browser support; the full spoken script remains accessible without sound.
+
+Progress through the story is saved in the existing local browser save. Watching slides does not change quiz results, flashcard review schedules, or XP. There is **no mandatory vocabulary/story gate** to enter practice.
+
+## Optional vocabulary walkthrough
+
+**📚 Vocabulary Walkthrough** remains available as an optional survey of the original **110 terms**, 10 at a time, with their English definitions and expandable PDF-derived recall checkpoints. You may skip it entirely and go straight to Recall Battle, MCQ, SEQ, Mock Exam, Rival Arena or Flashcard Lab. Walkthrough progress remains saved as before.
 
 ## Study modes
 
+- **🎞 Story Theater (new in v8)**: Narrated visual slide presentation, auto-advance by speech end, 36 slides and 110 terms.
 - **🎴 Flashcard Lab (introduced in v5)**: Anki-inspired efficient review scheduling with keyboard shortcuts (Space / 1 / 2 / 3). Quick Flip, Active Recall (AI or offline English grading), and Reverse Cards. Every card reveals individual PDF-derived key ideas and offers two optional progressive hints.
 - **⚔️ Recall Battle**: Explain a concept in your own English and receive checklist-based feedback.
 - **🎯 MCQ Arena**: Mixed term-recognition and historical context questions.
@@ -29,10 +42,10 @@ Quick Flip cards are self-assessed after revealing the answer. Active Recall sup
 ### Save migration / preserving history
 
 - **Permanent browser storage key:** `history_quest_progress_stable`. Earlier `history_quest_110_v2` data is imported automatically on first load. Keep both keys and migration code in future updates.
-- v5 extended the **existing v4 save** with `flashcards`, `flashSession`, `flashRecent` and `flashRewardClaims`. v6 adds `vocabWalk` (local date, daily completion and batch progress) to this same save, without changing XP, mastery, history, AI settings, Rival Arena rotation, or exam records.
+- v5 extended the **existing v4 save** with `flashcards`, `flashSession`, `flashRecent` and `flashRewardClaims`. v6 added `vocabWalk` (local date and progress), v7 added story chapters, and v8 adds a separate `story.slide` and `story.visitedSlides` progress field. All of these remain on the same stable save key and preserve XP, mastery, history, AI settings, Rival Arena rotation, and exam records.
 - Refreshing mid-session resumes the current card, answer, hints and progress. Sessions can also resume after switching modes.
 - Same hosted origin and browser normally preserve data across repository updates. Moving from `file://`, changing devices/browsers, using private mode or clearing site data does **not** automatically transfer progress.
-- To transfer data: **History & Backup → Export complete backup**; then **Import / merge backup** on the destination. Version 4 and 5 backups remain importable. Same-day vocabulary walkthrough completion is retained when merging backups. Merges preserve existing events and prefer newer flashcard review schedules.
+- To transfer data: **History & Backup → Export complete backup**; then **Import / merge backup** on the destination. Version 4 and 5 backups remain importable. Vocabulary walkthrough completion and story visits are retained when merging backups. Merges preserve existing events and prefer newer flashcard review schedules.
 - Periodically export your JSON backup. The browser is **not** a server-side account or cloud-sync database.
 
 ## Local run and GitHub Pages deployment
