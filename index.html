@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>HISTORY//QUEST v5 — Memory Lab + AI Arena</title>
+<title>HISTORY//QUEST v5 — Anki-style Flashcards + AI Arena</title>
 <style>
 :root{color-scheme:dark;--bg:#0b0e19;--panel:#141a2a;--panel2:#1b2437;--ink:#f3f5fd;--muted:#9eaac5;--edge:#2b3650;--brand:#98e5d6;--hot:#f8c978;--pink:#fb93a6;--good:#84e3ae;--blue:#9babff;--radius:18px}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 3% 0%,#243451 0%,transparent 29%),radial-gradient(ellipse at 97% 8%,#322a45 0%,transparent 29%),var(--bg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--ink);min-height:100vh}button,input,textarea,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.46;cursor:not-allowed}.shell{max-width:1170px;margin:0 auto;padding:22px 20px 50px}.topbar{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:5px 0 24px}.logo{font-size:16px;font-weight:900;letter-spacing:2px}.logo b{color:var(--brand)}.eyebrow{font-size:10px;letter-spacing:2.1px;text-transform:uppercase;color:var(--brand);font-weight:800}.profile{display:flex;align-items:center;gap:9px;flex-wrap:wrap}.statpill{background:#172038;border:1px solid var(--edge);border-radius:100px;padding:9px 12px;font-size:12px;font-weight:700}.statpill strong{color:var(--hot)}.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:18px;align-items:start}.sidebar,.maincard,.sidecard{border:1px solid var(--edge);background:linear-gradient(145deg,rgba(28,35,56,.98),rgba(18,24,40,.98));border-radius:var(--radius);box-shadow:0 13px 38px #0002}.sidebar{padding:18px;position:sticky;top:20px}.side-section{margin-top:22px}.sectiontitle{font-size:11px;text-transform:uppercase;letter-spacing:1.8px;color:var(--muted);font-weight:800;margin-bottom:10px}.navbtn{width:100%;text-align:left;display:flex;gap:11px;align-items:center;background:transparent;border:1px solid transparent;color:#aebad2;padding:12px 13px;border-radius:12px;font-size:13px;font-weight:730;transition:120ms}.navbtn:hover,.navbtn.active{border-color:#5a7478;background:#284243;color:#d7fff2}.navbtn .emoji{font-size:18px}.field{background:#10182a;border:1px solid #3a4963;color:var(--ink);width:100%;border-radius:11px;padding:11px 12px;outline:none}.field:focus{border-color:var(--brand);box-shadow:0 0 0 2px #9debd333}.tiny{font-size:12px;color:var(--muted);line-height:1.65}.bar{height:8px;border-radius:20px;background:#2b354b;overflow:hidden}.bar>div{height:100%;border-radius:inherit;background:linear-gradient(90deg,#6fbcb2,#cef6b3);transition:width .3s}.maincard{padding:27px;min-height:470px}.hero{display:flex;align-items:flex-start;justify-content:space-between;gap:15px}.h1{font-size:clamp(26px,4.5vw,40px);line-height:1.14;letter-spacing:-1.15px;font-weight:880;margin:8px 0 10px}.subtitle{font-size:14px;color:var(--muted);line-height:1.7;max-width:690px}.callout{padding:12px 16px;border-radius:12px;background:#243047;border:1px solid #415271;color:#e1edff;margin-top:20px;font-size:13px;line-height:1.6}.kicker{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:0 0 12px}.tag{border:1px solid #40536f;color:#bfd3e1;padding:5px 10px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.5px}.tag.gold{border-color:#806b44;color:var(--hot)}.tag.mint{border-color:#448b80;color:var(--brand)}.promptline{font-size:12px;letter-spacing:1.2px;color:var(--hot);text-transform:uppercase;font-weight:850;margin-top:19px}.bigterm{font-weight:850;font-size:clamp(30px,5vw,52px);letter-spacing:-1.5px;margin:8px 0 8px;line-height:1.1}.prompt{font-size:16px;font-weight:700;line-height:1.7;max-width:740px}.battlehead{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;border-bottom:1px solid var(--edge);padding-bottom:18px;margin-bottom:19px}.enemy{display:flex;gap:12px;align-items:center}.enemyicon{height:52px;width:52px;display:grid;place-items:center;background:#382e49;border:1px solid #64476a;border-radius:13px;font-size:25px}.boxlabel{font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.2px;color:var(--muted)}.enemyname{font-size:14px;font-weight:800;margin-top:4px}.hearts{font-size:20px;letter-spacing:4px;color:var(--pink)}textarea.answer{margin-top:15px;display:block;min-height:136px;width:100%;resize:vertical;background:#0e1526;border:1px solid #41536f;color:#f0f7ff;border-radius:14px;padding:15px 16px;line-height:1.6;font-size:15px;outline:none}textarea.answer:focus{border-color:var(--brand);box-shadow:0 0 0 3px #98e5d622}textarea.answer::placeholder{color:#7182a1}.buttons{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.btn{border:1px solid #4c6177;border-radius:11px;padding:11px 17px;background:#28374b;color:#edf6ff;font-size:13px;font-weight:800;transition:120ms}.btn:hover:not(:disabled){filter:brightness(1.13);transform:translateY(-1px)}.btn.primary{background:var(--brand);color:#0c2125;border-color:var(--brand)}.btn.warn{border-color:#826744;color:#f7d6a2;background:#392e28}.btn.ghost{background:transparent;border-color:var(--edge);color:#bdcde1}.btn.small{padding:7px 10px;font-size:11px}.miclive{background:#8c3047!important;border-color:#e29bab!important;color:white!important}.rule{border:0;border-top:1px solid var(--edge);margin:20px 0}.rubric{margin-top:20px}.rubrichead{display:flex;justify-content:space-between;gap:8px;align-items:center;margin-bottom:11px}.rubricitem{display:flex;align-items:start;gap:10px;padding:11px 12px;border:1px solid #33425b;background:#19243a;border-radius:11px;margin:8px 0}.rubricitem.success{background:#18332e;border-color:#367d64}.rubricitem.missed{background:#312531;border-color:#75516a}.rubricitem .indicator{min-width:20px;font-size:17px;font-weight:900}.rubricitem .pointbody{flex:1;line-height:1.4;font-size:13px}.rubricitem .minor{font-size:11px;color:#aebbd0;margin-top:4px}.hintrow{display:flex;gap:6px;flex-wrap:wrap;margin-top:11px}.hintpill{font-size:11px;border-radius:7px;background:#29344e;border:1px solid #40516a;color:#c3d4e9;padding:6px 9px}.source{margin-top:13px;background:#0d1425;border:1px solid #293951;border-radius:10px;overflow:hidden}.source summary{padding:11px 12px;cursor:pointer;font-size:12px;font-weight:750;color:#a6bbc7}.source .sourcetext{padding:0 13px 14px;color:#c9d6e8;line-height:1.8;font-size:12px}.answeroption{width:100%;border:1px solid #3d4b65;background:#151e32;color:#eef3fb;padding:14px 15px;border-radius:12px;text-align:left;font-size:14px;display:flex;gap:12px;align-items:flex-start;line-height:1.55;margin-top:10px}.answeroption:hover:not(:disabled){border-color:#8caec6;background:#202e47}.answeroption.correct{border-color:#55b794;background:#173831}.answeroption.incorrect{border-color:#cf7789;background:#462934}.answeroption .letter{display:grid;place-items:center;flex-shrink:0;border:1px solid #63748e;border-radius:6px;width:25px;height:25px;font-size:11px;font-weight:900}.feedback{margin-top:16px;background:#20304a;border:1px solid #455e7f;padding:14px;border-radius:12px;font-size:13px;line-height:1.7}.feedback strong{color:#b5efda}.summarygrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:21px 0}.metric{border:1px solid #384965;background:#17233a;padding:15px;border-radius:12px}.metric b{font-size:27px;display:block;color:var(--brand);line-height:1.4}.metric span{font-size:11px;color:#b2c0d5}.codextop{display:flex;flex-wrap:wrap;gap:10px;margin:19px 0}.codexlist{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.codexitem{border:1px solid #35445d;border-radius:12px;background:#151f33;padding:12px;text-align:left;color:var(--ink);min-height:72px}.codexitem:hover{background:#24314b;border-color:#7ea89f}.codexitem .index{font-size:10px;color:#83bea7}.codexitem .title{font-size:13px;font-weight:800;margin:5px 0}.codexitem .status{font-size:11px;color:var(--muted)}.formrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px}.toggle{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted)}input[type=checkbox]{accent-color:#98e5d6}.resulttitle{font-size:32px;font-weight:850;margin:13px 0}.resultnote{color:var(--muted);line-height:1.65}.examclock{font-weight:900;color:var(--hot);font-variant-numeric:tabular-nums;font-size:19px}.examclock.urgent{color:var(--pink)}.toast{position:fixed;bottom:24px;right:24px;border-radius:12px;background:#1b433e;color:#fff;border:1px solid #62b7a3;padding:14px 19px;max-width:320px;box-shadow:0 15px 50px #0006;font-size:13px;z-index:1000}.meta{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center}.soft{color:var(--muted)}.footer{color:#64768b;font-size:11px;text-align:center;padding:30px 0 0}.grade{font-size:22px;font-weight:900;color:var(--hot)}.review{border:1px solid var(--edge);padding:14px;border-radius:11px;margin-top:10px;font-size:12px;line-height:1.7;color:var(--muted)}.review b{color:var(--ink)}.voicehint{font-size:11px;color:#8399b4;margin-top:9px}
@@ -561,32 +561,39 @@ function flashOtherWeakIds(){
  }
  return weak;
 }
-function flashPickSession(style,limit,topic,practice){
+function flashPickSession(style,limit,topic,practice,queue='daily'){
  const now=Date.now(),available=TERMS.filter(t=>topic==='all'||t.group===topic),weak=flashOtherWeakIds();
- // Existing due reviews are prioritized; recent mistakes in other modes come next.
  let due=available.filter(t=>flashState(t.id).reviewCount&&(flashState(t.id).dueAt||0)<=now);
  let fresh=available.filter(t=>!flashState(t.id).reviewCount);
  let corrective=available.filter(t=>weak.has(t.id)&&!due.includes(t)&&!fresh.includes(t));
- let recent=new Set((save.flashRecent||[]).slice(-30));
- const rank=t=>((flashState(t.id).dueAt||0)-now)/FLASH_DAY + (recent.has(t.id)?8:0) + (weak.has(t.id)?-2:0);
- due.sort((a,b)=>rank(a)-rank(b));
- fresh.sort((a,b)=>(weak.has(a.id)?-1:1)-(weak.has(b.id)?-1:1)||
-  (rec(a.id).best||0)-(rec(b.id).best||0)||((save.flashRecent||[]).includes(a.id)?1:-1));
+ const recent=new Set((save.flashRecent||[]).slice(-30));
+ due.sort((a,b)=>(flashState(a.id).dueAt||0)-(flashState(b.id).dueAt||0));
+ fresh.sort((a,b)=>(weak.has(a.id)?0:1)-(weak.has(b.id)?0:1) ||
+  (rec(a.id).best||0)-(rec(b.id).best||0) || (recent.has(a.id)?1:0)-(recent.has(b.id)?1:0));
  corrective.sort((a,b)=>(flashState(a.id).lastReviewed||0)-(flashState(b.id).lastReviewed||0));
- let ordered=[...due,...corrective,...fresh];
- if(practice&&ordered.length<limit)ordered.push(...shuffled(available.filter(t=>!ordered.includes(t))));
- // Round-robin across regions so short sessions aren't dominated by one historical region.
- let chosen=[],picked=new Set(),bins=new Map();
- for(const t of ordered){if(!bins.has(t.group))bins.set(t.group,[]);bins.get(t.group).push(t);}
- while(chosen.length<limit&&chosen.length<ordered.length){
-  const options=[...bins].filter(([g,a])=>a.length).sort((a,b)=>(chosen.filter(x=>x.group===a[0]).length)-(chosen.filter(x=>x.group===b[0]).length));
-  if(!options.length)break;
-  const t=options[0][1].shift();if(!picked.has(t.id)){chosen.push(t);picked.add(t.id);}
+ // Strictly take due cards first; distribute within each priority tier across regions.
+ const ordered=[];
+ function balancedTake(items){
+  const bins=new Map(),counts=new Map();
+  for(const t of items){if(!bins.has(t.group))bins.set(t.group,[]);bins.get(t.group).push(t);}
+  while([...bins.values()].some(b=>b.length)){
+   const candidates=[...bins].filter(([,b])=>b.length).sort((a,b)=>(counts.get(a[0])||0)-(counts.get(b[0])||0));
+   const [group,bin]=candidates[0];ordered.push(bin.shift());counts.set(group,(counts.get(group)||0)+1);
+  }
  }
- return chosen.map(t=>t.id);
+ balancedTake(due);
+ if(queue!=='due'){
+  balancedTake(corrective);
+  balancedTake(fresh);
+  if(practice){
+   const used=new Set(ordered.map(t=>t.id));
+   balancedTake(shuffled(available.filter(t=>!used.has(t.id))));
+  }
+ }
+ return ordered.slice(0,limit).map(t=>t.id);
 }
-function flashStart(style,limit,topic,practice=false){
- ensureFlashStore();let ids=flashPickSession(style,limit,topic,practice);
+function flashStart(style,limit,topic,practice=false,queue='daily'){
+ ensureFlashStore();let ids=flashPickSession(style,limit,topic,practice,queue);
  if(!ids.length){toast('Nothing is due yet! Try Free Practice or select another region.');return;}
  save.flashSession={ids,index:0,style,topic,started:Date.now(),phase:'front',hints:0,answer:'',grade:null,
   attempts:{},completed:0,known:0,partial:0,forgot:0,results:[]};
@@ -631,13 +638,8 @@ function flashRate(rating){
  putrec(term.id,{tries:(earlier.tries||0)+1,last:now,
   best:Math.max(earlier.best||0,verified?g.ratio:rating==='know'?.72:rating==='partial'?.5:0),
   known:!!(earlier.known||verified)});
- const today=new Date(now).toLocaleDateString('en-CA'),claim=String(term.id)+':'+today;
- let reward=0;
- if(!save.flashRewardClaims[claim]){
-  reward=rating==='know'?14:rating==='partial'?6:2;
-  if(s.hints)reward=Math.floor(reward/(1+s.hints));
-  save.flashRewardClaims[claim]=now;addXp(reward);
- }
+ // Pure review mode: no XP farming. Existing XP, mastery and historical records remain untouched.
+ const reward=0;
  logEvent('flashcard',{title:term.term,termId:term.id,score,mode:s.style,rating,
   ratingRequested:requested,hints:s.hints,reviewNumber:after.reviewCount,
   nextDue:after.dueAt,intervalDays:after.intervalDays,xpGained:reward,
@@ -659,10 +661,10 @@ function flashEndSummary(s){
  const total=s.results.length,count=s.results.filter(r=>r.rating==='know').length;
  const missed=s.results.filter(r=>r.rating!=='know');
  return `<div class="kicker"><span class="tag mint">🏁 SESSION COMPLETE</span><span class="tag gold">MEMORY LAB</span></div>
- <div class="h1">${count===total?'✨ Flawless Recall!':'🎒 Review complete!'}</div>
+ <div class="h1">${count===total?'Review complete — all remembered':'Review complete'}</div>
  <p class="subtitle">Every card has a saved review date. Your next session will prioritize overdue cards and concepts you struggled with.</p>
  <div class="summarygrid"><div class="metric"><b>${total}</b><span>Cards reviewed</span></div><div class="metric"><b>${s.known}</b><span>Know it</span></div><div class="metric"><b>${s.forgot}</b><span>Forgot</span></div></div>
- <div class="callout">🧠 <b>Memory streak:</b> ${count} successful ratings · XP is limited to one reward per term per day, preventing grind from replacing actual recall.</div>
+ <div class="callout">🧠 <b>Recall results:</b> ${count} marked fully remembered. Ratings automatically determine the next review date.</div>
  <div class="buttons"><button class="btn primary" id="flashDone">Back to Memory Lab</button><button class="btn ghost" id="flashMistakes">Practice missed concepts</button></div>
  ${missed.length?`<div class="rubric"><b>Revisit:</b>${missed.slice(0,15).map(r=>`<div class="review">${enc(byId[r.termId]?.term||'')} · ${enc(flashRatings[r.rating].name)} · ${enc(flashDayLabel(flashState(r.termId).dueAt))}</div>`).join('')}</div>`:''}`;
 }
@@ -672,21 +674,22 @@ function flashBoard(){
  let due=available.filter(t=>flashState(t.id).reviewCount&&flashState(t.id).dueAt<=now).length;
  let unseen=available.filter(t=>!flashState(t.id).reviewCount).length;
  let upcoming=TERMS.filter(t=>flashState(t.id).reviewCount&&flashState(t.id).dueAt>now).sort((a,b)=>flashState(a.id).dueAt-flashState(b.id).dueAt).slice(0,4);
- $('game').innerHTML=`<div class="kicker"><span class="tag mint">🧠 FLASHCARD LAB</span><span class="tag gold">V5 · ANKI × RPG</span></div>
- <div class="h1">Forge your memory.</div><p class="subtitle">Recall each history concept in English, flip for separate rubric points, and let spaced repetition schedule the next review. Every rating saves to your shared history database.</p>
+ $('game').innerHTML=`<div class="kicker"><span class="tag mint">🧠 FLASHCARD LAB</span><span class="tag">V5 · FOCUSED REVIEW</span></div>
+ <div class="h1">Daily review.</div><p class="subtitle">One concept at a time: recall its English meaning, reveal the key points, then rate what you actually remembered. Cards automatically return when they are due.</p>
  <div class="summarygrid"><div class="metric"><b>${due}</b><span>Due in selected region</span></div><div class="metric"><b>${unseen}</b><span>Unseen in region</span></div><div class="metric"><b>${st.maturing}</b><span>Mature cards (3+ recalls)</span></div></div>
  <div class="flash-steps"><div><span class="flash-step-icon">①</span><b>Recall</b><small>Think or type in English</small></div><div><span class="flash-step-icon">②</span><b>Reveal</b><small>Check all rubric checkpoints</small></div><div><span class="flash-step-icon">③</span><b>Schedule</b><small>Forgot / Partial / Know it</small></div></div>
  <div class="flash-panel"><div class="sectiontitle">Build your next review session</div>
  <div class="settingsgrid"><label>Study mode<select class="field" id="flashStyle"><option value="quick" ${style==='quick'?'selected':''}>⚡ Quick Flip · self-rating</option><option value="active" ${style==='active'?'selected':''}>✍️ Active Recall · AI / offline</option><option value="reverse" ${style==='reverse'?'selected':''}>🔍 Reverse Cards · recognition</option></select></label>
  <label>Session length<select class="field" id="flashLimit">${[10,15,25,40].map(x=>`<option value="${x}" ${x===limit?'selected':''}>Up to ${x} cards</option>`).join('')}</select></label>
  <label class="wide">Historical region<select class="field" id="flashTopic"><option value="all">🌍 All 9 regions</option>${GROUPS.map(g=>`<option value="${enc(g)}" ${g===group?'selected':''}>${enc(g)}</option>`).join('')}</select></label></div>
- <div class="buttons"><button class="btn primary" id="flashStart" ${due+unseen===0?'disabled':''}>🎴 Review due + new cards</button><button class="btn ghost" id="flashFree">🎲 Free practice</button></div>
- <p class="tiny">Due reviews first, then recent mistakes from other game modes and unseen terms; spaced intervals grow 1 → 3 → 7 → 14 → 30+ days. Forgot repeats later in the same session and is due again in 5 minutes; Partial is due again in 30 minutes. Current session progress survives a refresh.</p></div>
+ <div class="buttons"><button class="btn primary" id="flashStart" ${due+unseen===0?'disabled':''}>Start daily review</button><button class="btn ghost" id="flashDue" ${due===0?'disabled':''}>Due only (${due})</button><button class="btn ghost" id="flashFree">Free practice</button></div>
+ <p class="tiny">Priority: due cards → recent mistakes → unseen concepts. Spaced intervals: 1 → 3 → 7 → 14 → 30+ days; Forgot: 5 min; Partial: 30 min. On a card, press Space to reveal, then 1 / 2 / 3 to rate. Progress survives refreshing the page.</p></div>
  ${upcoming.length?`<div class="rubric"><b>Upcoming reviews</b>${upcoming.map(t=>`<div class="review"><b>${enc(t.term)}</b> · ${enc(flashDayLabel(flashState(t.id).dueAt))} · ${enc(t.group)}</div>`).join('')}</div>`:''}
  <div class="qualitynote"><b>Same saved profile.</b> Flashcard ratings, original Recall, MCQ, SEQ, exams and Rival Arena all share the v5 backup. Previously mastered concepts remain mastered.</div>`;
  function settings(){S.flashStyle=$('flashStyle').value;S.flashLimit=Number($('flashLimit').value);S.flashTopic=$('flashTopic').value;}
  $('flashStyle').onchange=settings;$('flashLimit').onchange=settings;$('flashTopic').onchange=settings;
  $('flashStart').onclick=()=>{settings();flashStart(S.flashStyle,S.flashLimit,S.flashTopic,false);};
+ $('flashDue').onclick=()=>{settings();flashStart(S.flashStyle,S.flashLimit,S.flashTopic,false,'due');};
  $('flashFree').onclick=()=>{settings();flashStart(S.flashStyle,S.flashLimit,S.flashTopic,true);};
 }
 function flashCardView(){
@@ -712,9 +715,9 @@ function flashCardView(){
  ${!show&&s.style!=='active'?`<div class="buttons"><button class="btn primary" id="flashFlip">↩ Flip to reveal</button><button class="btn ghost" id="flashHint" ${s.hints>=2?'disabled':''}>💡 Hint ${s.hints}/2</button><button class="btn ghost" id="flashListen">🔈 Listen</button></div>`:''}
  ${graded?`<div class="flash-grade"><strong>${Math.round(g.ratio*100)}% · ${g.found}/${g.total} points</strong><span>Suggested: ${enc(flashRatings[suggested].name)}${s.hints?' · hint penalty applies':''}</span></div>${gradeInfo(g)}${rubricList(term.points,g)}`:''}
  ${show?`<div class="sectiontitle" style="margin-top:22px">${graded?'Confirm / adjust your recall rating':'How much did you remember without looking?'}</div>
- <div class="flash-rating-grid">${Object.entries(flashRatings).map(([v,o])=>`<button class="flash-rate ${v}" data-flash-rate="${v}" ${suggested===v?'aria-label="Suggested rating"':''}><b>${o.icon} ${o.name}</b><small>${v==='forgot'?'Repeat later · 5m':v==='partial'?'Review again · 30m':'Extend interval · 1d+'}</small></button>`).join('')}</div>
+ <div class="flash-rating-grid">${Object.entries(flashRatings).map(([v,o])=>`<button class="flash-rate ${v}" data-flash-rate="${v}" ${suggested===v?'aria-label="Suggested rating"':''}><b>${o.icon} ${o.name}</b><small>${v==='forgot'?'1 · Repeat · 5m':v==='partial'?'2 · Again · 30m':'3 · Next interval'}</small></button>`).join('')}</div>
  <p class="tiny">If you used hints, “Know it” is capped at Partial for honest retention tracking. Choose Forgot when the definition was only recognizable after flipping.</p>`:''}
- <div class="flash-footer"><span>✨ ${s.known} known · ${s.partial} partial · ${s.forgot} forgotten</span><button class="btn ghost small" id="flashExit">End session</button></div>`;
+ <div class="flash-footer"><span>${s.known} known · ${s.partial} partial · ${s.forgot} forgotten · <kbd>Space</kbd> flip · <kbd>1 / 2 / 3</kbd> rate</span><button class="btn ghost small" id="flashExit">End session</button></div>`;
  $('flashExit').onclick=flashStop;
  if(!show){$('flashHint').onclick=flashHint;if(s.style==='active'){
   $('flashAnswer').oninput=e=>{s.answer=e.target.value;flashSaveSession();};
@@ -740,6 +743,20 @@ flashNav.insertAdjacentHTML('beforebegin','<button type="button" class="navbtn" 
 const renderBeforeFlash=render;
 render=function(){if(S.mode==='flash')renderFlash();else renderBeforeFlash();let dot=$('flashNavDue');if(dot){let due=flashStats().due;dot.textContent=due?String(due):'';dot.style.display=due?'inline-flex':'none';}};
 histKinds.flashcard='🎴 Flashcard Review';
+// Anki-style keyboard shortcuts; never hijack typing, selectors or editable content.
+document.addEventListener('keydown',e=>{
+ if(S.mode!=='flash'||e.altKey||e.ctrlKey||e.metaKey||e.repeat)return;
+ const a=document.activeElement;
+ if(a&&(a.isContentEditable||['INPUT','TEXTAREA','SELECT'].includes(a.tagName)))return;
+ const sess=flashSession();if(!sess||sess.finished)return;
+ if(sess.phase==='front'&&sess.style!=='active'&&e.code==='Space'){
+  e.preventDefault();flashReveal();return;
+ }
+ if(sess.phase==='revealed'&&['Digit1','Digit2','Digit3','Numpad1','Numpad2','Numpad3'].includes(e.code)){
+  e.preventDefault();flashRate({Digit1:'forgot',Digit2:'partial',Digit3:'know',Numpad1:'forgot',Numpad2:'partial',Numpad3:'know'}[e.code]);
+ }
+});
+
 
 render();
 </script>
