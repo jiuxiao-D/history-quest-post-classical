@@ -1,44 +1,45 @@
-# HISTORY//QUEST — Post-Classical (600–1450 CE)
+# HISTORY//QUEST v5 — Post-Classical History (600–1450 CE)
 
-A zero-build, offline-capable single-page English recall game based on the supplied 110-term study handout. Features **Recall Battle**, **MCQ Arena**, **SEQ Boss**, a 12-minute **Mock Exam**, a **25-round Rival Arena**, **Codex**, **AI grading** (bring your own OpenAI-compatible Chat Completions API), and **History & Backup**.
+**Play the live game:** https://jiuxiao-d.github.io/history-quest-post-classical/
 
-## Run locally
+An offline-first, no-build English historical vocabulary game drawn from the user's 10-page, 110-term Post-Classical handout. The same 110 terms and 276 English rubric checkpoints power each mode.
 
-Open [`index.html`](./index.html) in a modern browser. No package manager, build, backend, or account required. All built-in offline grading functions without an API key.
+## Study modes
 
-## Publish with GitHub Pages
+- **🎴 Flashcard Lab (new in v5)**: Anki-inspired review scheduling + RPG XP/levels. Quick Flip, Active Recall (AI or offline English grading), and Reverse Cards. Every card reveals individual PDF-derived key ideas and offers two optional progressive hints.
+- **⚔️ Recall Battle**: Explain a concept in your own English and receive checklist-based feedback.
+- **🎯 MCQ Arena**: Mixed term-recognition and historical context questions.
+- **✍️ SEQ Boss**: Free-response exam practice with individual rubric checkpoints.
+- **⏱️ Mock Exam**: 10 MCQs, 2 SEQs, timed to 12 minutes.
+- **🏆 Rival Arena**: 25 concept rounds with a simulated skill-matched rival and cross-match anti-repetition.
+- **📜 Codex**: Browse all 110 concepts and mark favorites.
+- **🗂️ History & Backup**: Keep per-answer history, scores and export/merge JSON backups.
+- **⚙️ AI Settings**: Optional bring-your-own OpenAI-compatible chat-completions endpoint and model; the key stays in page memory only.
 
-The site is already committed on the public `main` branch, and [the automatic deployment workflow](./.github/workflows/pages.yml) is installed.
+### Flashcard scheduling
 
-### One-time required GitHub setting
+Quick Flip cards are self-assessed after revealing the answer. Active Recall supports AI grading or offline fallback, followed by the user's final rating. Rate **Forgot** to revisit in five minutes (and again later in the current session); **Partial** to revisit in 30 minutes; **Know it** to begin at 1 day, then 3, 7, 14, 30+ days with subsequent successful recalls. A hint-assisted **Know it** rating is limited to **Partial**. Re-reviewing a non-due card doesn't fast-forward its interval. XP rewards are capped to once per term per local day. The Daily Review screen prioritizes due reviews, recent mistakes from other modes, and new cards, with category balancing.
 
-GitHub does not allow the connected file-writing integration to enable Pages on your behalf. Repository owner must do this once:
+### Save migration / preserving history
 
-1. Open **[Settings → Pages](https://github.com/jiuxiao-D/history-quest-post-classical/settings/pages)**.
-2. Under **Build and deployment → Source**, select **GitHub Actions** (NOT "Deploy from a branch").
-3. Save if requested.
-4. Return to **[Actions](https://github.com/jiuxiao-D/history-quest-post-classical/actions/workflows/pages.yml)** and select **Run workflow**, or rerun the latest failed workflow.
+- **Permanent browser storage key:** `history_quest_progress_stable`. Earlier `history_quest_110_v2` data is imported automatically on first load. Keep both keys and migration code in future updates.
+- v5 extends the **existing v4 save** with `flashcards`, `flashSession`, `flashRecent` and `flashRewardClaims` without changing XP, mastery, history, AI settings, Rival Arena rotation, or exam records.
+- Refreshing mid-session resumes the current card, answer, hints and progress. Sessions can also resume after switching modes.
+- Same hosted origin and browser normally preserve data across repository updates. Moving from `file://`, changing devices/browsers, using private mode or clearing site data does **not** automatically transfer progress.
+- To transfer data: **History & Backup → Export complete backup**; then **Import / merge backup** on the destination. Version 4 backups remain importable. Merges preserve existing events and prefer newer flashcard review schedules.
+- Periodically export your JSON backup. The browser is **not** a server-side account or cloud-sync database.
 
-The site will then be published at:
+## Local run and GitHub Pages deployment
 
-**https://jiuxiao-d.github.io/history-quest-post-classical/**
+Open `index.html` directly with Chrome or Edge; the built-in game is a self-contained single HTML file and works offline, including non-AI grading. No build tools are required.
 
-**Note:** the URL is not live until the Pages workflow successfully deploys. Once enabled, every change to `main` automatically republishes the latest game.
+This repository already has GitHub Pages enabled to **GitHub Actions**. The workflow `.github/workflows/pages.yml` deploys the root site automatically after every push to `main` (or via manual `workflow_dispatch`). No manual re-upload is necessary.
 
-## Preserve your progress across versions
+- [Live website](https://jiuxiao-d.github.io/history-quest-post-classical/)
+- [GitHub Actions deployments](https://github.com/jiuxiao-D/history-quest-post-classical/actions/workflows/pages.yml)
 
-- The save database is stored in the browser's `localStorage` under the **permanent key** `history_quest_progress_stable`.
-- The app automatically migrates legacy `history_quest_110_v2` progress on first launch. **Do not change these keys or remove migration functions in future versions.**
-- Updating the hosted app at the **same URL and browser origin** preserves your stored local data by default.
-- When moving between a downloaded file, GitHub Pages, browsers or devices, choose **History & Backup → Export complete backup** in the old version, then **Import / merge backup** in the new version.
-- Import merges progress, records and arena history by event ID, instead of resetting prior data.
-- Browser private modes, cleared site data, or storage limits can still erase local saves, so keep periodic exported JSON backups.
-- Older versions that never saved individual answers cannot restore those earlier answers; previously tracked mastery, XP, and arena summary data can be imported.
+## API key precautions
 
-## AI API safety
+The API key is not written to local storage, backups, or this repository. Browser-side requests can still expose the token to the configured provider and browser extensions. Use a trusted CORS-capable provider or an authenticated personal proxy; usage charges may apply. Invalid or unreachable APIs revert to explicitly labeled offline rubric scoring.
 
-AI grading is optional. API credentials are entered in-memory during the session and are **not embedded in this repository**, exported in backups, or stored in `localStorage`. The configured AI endpoint and model preferences (but not the key) are saved in the browser. The API provider must permit browser CORS requests; any requests are billed according to that provider's terms. Do not commit API credentials to the repository or source code. A browser-accessible, user-supplied API key can still be exposed to local browser extensions or scripts; consider a constrained token/proxy if you use it broadly.
-
-## Future updates
-
-Edit the root `index.html` in the same repository. Keep the same GitHub Pages hostname and repository path and preserve schema migrations and the stable save key. Back up JSON before major releases.
+Question simulations follow the supplied handout and are **not** official examination questions.
