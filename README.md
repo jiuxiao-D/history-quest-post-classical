@@ -8,18 +8,22 @@ Open [`index.html`](./index.html) in a modern browser. No package manager, build
 
 ## Publish with GitHub Pages
 
-1. Create a **public** GitHub repository, suggested name `history-quest-post-classical`, with a `main` branch.
-2. Upload `index.html`, `.nojekyll`, and `README.md` to the **root** of `main` (not inside another directory).
-3. Open **Settings → Pages → Build and deployment**. Select **Deploy from a branch**, branch **main**, folder **/(root)**, then **Save**.
-4. Wait for GitHub to report the published website URL under **Settings → Pages**.
+The site is already committed on the public `main` branch, and [the automatic deployment workflow](./.github/workflows/pages.yml) is installed.
 
-Expected conventional URL if hosted in the user account `jiuxiao-D` in repository `history-quest-post-classical` (NOT live until published):
+### One-time required GitHub setting
 
-`https://jiuxiao-d.github.io/history-quest-post-classical/`
+GitHub does not allow the connected file-writing integration to enable Pages on your behalf. Repository owner must do this once:
 
-After the initial setup, updates to `index.html` on `main` are automatically published by GitHub Pages.
+1. Open **[Settings → Pages](https://github.com/jiuxiao-D/history-quest-post-classical/settings/pages)**.
+2. Under **Build and deployment → Source**, select **GitHub Actions** (NOT "Deploy from a branch").
+3. Save if requested.
+4. Return to **[Actions](https://github.com/jiuxiao-D/history-quest-post-classical/actions/workflows/pages.yml)** and select **Run workflow**, or rerun the latest failed workflow.
 
-See [GitHub's branch publishing guide](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+The site will then be published at:
+
+**https://jiuxiao-d.github.io/history-quest-post-classical/**
+
+**Note:** the URL is not live until the Pages workflow successfully deploys. Once enabled, every change to `main` automatically republishes the latest game.
 
 ## Preserve your progress across versions
 
