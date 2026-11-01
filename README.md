@@ -1,8 +1,18 @@
-# HISTORY//QUEST v9 — Memory-Friendly Voice + Story Theater (600–1450 CE)
+# HISTORY//QUEST v10 — SPICET Recall + AI Checking (600–1450 CE)
 
 **Play the live game:** https://jiuxiao-d.github.io/history-quest-post-classical/
 
 An offline-first, no-build English historical vocabulary game drawn from the user's 10-page, 110-term Post-Classical handout. The same 110 terms and 276 English rubric checkpoints power each mode.
+
+## 🧠 v10 — SPICET and AI Checking
+
+**Recall Battle now shows one or two English direction words for every rubric checkpoint**, color-coded using SPICET: Social (S), Political (P), Interaction with Environment (I), Cultural (C), Economic (E), Technological (T). These 276 source-aligned cues cover all 110 terms and indicate what to think about without revealing the full PDF key point.
+
+**More generous grading:** The AI rubric prompt accepts concise approximate historical understanding, paraphrases, synonyms and minor language errors without exact wording. It still rejects unrelated/contradictory ideas, and distinct rubric facts are checked separately. Offline mode includes a conservative approximate keyword fallback.
+
+**Optional Checking on Recall results:** When some points are uncertain, users with an existing OpenAI-compatible chat API configured in AI Settings can request up to three AI-generated short-answer questions. Each generally needs only one or two words. A correct short answer restores that rubric point and updates the final grade and same saved answer-history entry, without granting XP again. A brief retry is allowed. The full missing answers stay hidden until Checking is finished or skipped, preventing spoilers.
+
+AI Checking uses the previously supported chat-completions endpoint and model; **no new API dependency**. If AI is not connected, users can view the full rubric and retry as before. AI requests send the term, rubric and user answer to the selected provider, which may charge for usage. API keys are not embedded in the public site or exported in backups. Existing v9 progress stays on `history_quest_progress_stable`.
 
 ## 🎞 Story Theater (redesigned in v8; narrator upgrade in v9)
 
@@ -29,7 +39,7 @@ Progress through the story and the voice preferences are saved in the existing l
 
 - **🎞 Story Theater (v9 voice upgrade)**: Narrated visual slide presentation, auto-advance by speech end, 36 slides and 110 terms, selectable narrator voices and memory-friendly pacing.
 - **🎴 Flashcard Lab (introduced in v5)**: Anki-inspired efficient review scheduling with keyboard shortcuts (Space / 1 / 2 / 3). Quick Flip, Active Recall (AI or offline English grading), and Reverse Cards. Every card reveals individual PDF-derived key ideas and offers two optional progressive hints.
-- **⚔️ Recall Battle**: Explain a concept in your own English and receive checklist-based feedback.
+- **⚔️ Recall Battle (v10)**: SPICET direction hints, lenient concept grading and optional AI Checking with 1–2 word answers.
 - **🎯 MCQ Arena**: Mixed term-recognition and historical context questions.
 - **✍️ SEQ Boss**: Free-response exam practice with individual rubric checkpoints.
 - **⏱️ Mock Exam**: 10 MCQs, 2 SEQs, timed to 12 minutes.
