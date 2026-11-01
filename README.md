@@ -6,7 +6,7 @@ An offline-first, no-build English historical vocabulary game drawn from the use
 
 ## Study modes
 
-- **🎴 Flashcard Lab (new in v5)**: Anki-inspired review scheduling + RPG XP/levels. Quick Flip, Active Recall (AI or offline English grading), and Reverse Cards. Every card reveals individual PDF-derived key ideas and offers two optional progressive hints.
+- **🎴 Flashcard Lab (new in v5)**: Anki-inspired efficient review scheduling with keyboard shortcuts (Space / 1 / 2 / 3). Quick Flip, Active Recall (AI or offline English grading), and Reverse Cards. Every card reveals individual PDF-derived key ideas and offers two optional progressive hints.
 - **⚔️ Recall Battle**: Explain a concept in your own English and receive checklist-based feedback.
 - **🎯 MCQ Arena**: Mixed term-recognition and historical context questions.
 - **✍️ SEQ Boss**: Free-response exam practice with individual rubric checkpoints.
@@ -18,7 +18,7 @@ An offline-first, no-build English historical vocabulary game drawn from the use
 
 ### Flashcard scheduling
 
-Quick Flip cards are self-assessed after revealing the answer. Active Recall supports AI grading or offline fallback, followed by the user's final rating. Rate **Forgot** to revisit in five minutes (and again later in the current session); **Partial** to revisit in 30 minutes; **Know it** to begin at 1 day, then 3, 7, 14, 30+ days with subsequent successful recalls. A hint-assisted **Know it** rating is limited to **Partial**. Re-reviewing a non-due card doesn't fast-forward its interval. XP rewards are capped to once per term per local day. The Daily Review screen prioritizes due reviews, recent mistakes from other modes, and new cards, with category balancing.
+Quick Flip cards are self-assessed after revealing the answer. Active Recall supports AI grading or offline fallback, followed by the user's final rating. Rate **Forgot** to revisit in five minutes (and again later in the current session); **Partial** to revisit in 30 minutes; **Know it** to begin at 1 day, then 3, 7, 14, 30+ days with subsequent successful recalls. A hint-assisted **Know it** rating is limited to **Partial**. Re-reviewing a non-due card doesn't fast-forward its interval. Flashcard reviews do not award XP; existing account XP stays intact. Use the **Due only** button to avoid studying new cards. The Daily Review screen prioritizes due reviews, recent mistakes from other modes, and new cards, with category balancing.
 
 ### Save migration / preserving history
 
