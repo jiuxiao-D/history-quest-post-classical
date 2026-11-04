@@ -1,18 +1,24 @@
-# HISTORY//QUEST v10 — SPICET Recall + AI Checking (600–1450 CE)
+# HISTORY//QUEST v11 — Study Controls + Local Encrypted AI Vault (600–1450 CE)
 
 **Play the live game:** https://jiuxiao-d.github.io/history-quest-post-classical/
 
 An offline-first, no-build English historical vocabulary game drawn from the user's 10-page, 110-term Post-Classical handout. The same 110 terms and 276 English rubric checkpoints power each mode.
 
-## 🧠 v10 — SPICET and AI Checking
 
-**Recall Battle now shows one or two English direction words for every rubric checkpoint**, color-coded using SPICET: Social (S), Political (P), Interaction with Environment (I), Cultural (C), Economic (E), Technological (T). These 276 source-aligned cues cover all 110 terms and indicate what to think about without revealing the full PDF key point.
+## v11 · Login gate, encrypted API settings, and feedback controls
 
-**More generous grading:** The AI rubric prompt accepts concise approximate historical understanding, paraphrases, synonyms and minor language errors without exact wording. It still rejects unrelated/contradictory ideas, and distinct rubric facts are checked separately. Offline mode includes a conservative approximate keyword fallback.
+**Access gate:** Each fresh page load shows a login form before the game UI. The username and passphrase are checked in the browser against a salted PBKDF2-SHA256 verifier. The source does not contain the plaintext passphrase. Use **Lock / Sign out** to hide the game and clear unencrypted credentials from the page memory and form.
 
-**Optional Checking on Recall results:** When some points are uncertain, users with an existing OpenAI-compatible chat API configured in AI Settings can request up to three AI-generated short-answer questions. Each generally needs only one or two words. A correct short answer restores that rubric point and updates the final grade and same saved answer-history entry, without granting XP again. A brief retry is allowed. The full missing answers stay hidden until Checking is finished or skipped, preventing spoilers.
+**Important limitation:** This site uses public GitHub Pages hosting, so **this is not real server-side authentication**. A visitor can still retrieve the public HTML and scripts, inspect the verification code or brute-force the short passphrase offline. The login interface is useful for preventing casual access on a shared browser; it is not a way to protect private records on a public server. For real access restrictions, migrate to authenticated hosting (for example, Cloudflare Access or a server-side authentication service). Do not embed provider API keys or other private values into the GitHub repository.
 
-AI Checking uses the previously supported chat-completions endpoint and model; **no new API dependency**. If AI is not connected, users can view the full rubric and retry as before. AI requests send the term, rubric and user answer to the selected provider, which may charge for usage. API keys are not embedded in the public site or exported in backups. Existing v9 progress stays on `history_quest_progress_stable`.
+**Encrypted API storage:** After login, AI Settings can save the endpoint URL, model identifier, and API key in **AES-256-GCM** ciphertext in the *current browser's localStorage*. The encryption key is derived using PBKDF2-SHA256 from the login passphrase. On successful login, an older v10 plaintext endpoint/model configuration (if present) is migrated and the old storage entry removed. Earlier versions never saved the API key, so the user must enter it once in v11. The encrypted settings survive a page reload on the same browser and are deleted/replaced when the user erases the saved key. Changing the passphrase without re-encrypting the vault would make stored settings inaccessible. A site script running while the user is logged in may still use decrypted credentials, and API traffic goes directly from the browser to the configured provider. Do not use paid private provider keys on a public static origin when backend security is required.
+
+**Study Preferences (new navigation item):**
+- **After every answer:** Normal immediate feedback and AI Checking for Recall Battle; MCQ and SEQ show the model key after each answer.
+- **All together at the end:** Finish a **5, 10 (default), or 20-question set** in Recall Battle, MCQ Arena, or SEQ Boss without seeing graded answers. A batch review then reveals the explanations for every question at once. Individual Recall answers in that review can still enter **AI Checking**. Mock Exam already reveals at its end; Rival Arena hides its round feedback and shows its full answer review after the complete 25-round match.
+- **Hide key-point hints and counts:** Conceals pre-answer SPICET labels/direction hints and numerical key-point counts in Recall; also conceals displayed hint counts in SEQ, flashcard and Arena prompts. The full reference becomes available after answers are reviewed.
+
+Study preferences are saved with the pre-existing `history_quest_progress_stable` save data, including in the ordinary JSON progress backup. The API vault is intentionally **not** included in those JSON backups. Existing XP, Recall/MCQ/SEQ results, Checking records, Arena records, story progress and flashcard schedules are maintained.
 
 ## 🎞 Story Theater (redesigned in v8; narrator upgrade in v9)
 
@@ -39,7 +45,7 @@ Progress through the story and the voice preferences are saved in the existing l
 
 - **🎞 Story Theater (v9 voice upgrade)**: Narrated visual slide presentation, auto-advance by speech end, 36 slides and 110 terms, selectable narrator voices and memory-friendly pacing.
 - **🎴 Flashcard Lab (introduced in v5)**: Anki-inspired efficient review scheduling with keyboard shortcuts (Space / 1 / 2 / 3). Quick Flip, Active Recall (AI or offline English grading), and Reverse Cards. Every card reveals individual PDF-derived key ideas and offers two optional progressive hints.
-- **⚔️ Recall Battle (v10)**: SPICET direction hints, lenient concept grading and optional AI Checking with 1–2 word answers.
+- **⚔️ Recall Battle**: Explain a concept in your own English and receive checklist-based feedback.
 - **🎯 MCQ Arena**: Mixed term-recognition and historical context questions.
 - **✍️ SEQ Boss**: Free-response exam practice with individual rubric checkpoints.
 - **⏱️ Mock Exam**: 10 MCQs, 2 SEQs, timed to 12 minutes.
