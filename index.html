@@ -127,10 +127,16 @@
 .check-progress,.check-notice{color:#e0e9fb;font-size:12px;line-height:1.6}.check-progress{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
 .checking-panel .field{margin-bottom:4px}.checking-panel>.btn{margin-top:13px}.checking-panel .buttons{margin:12px 0}
 @media(max-width:600px){.spicet-pill{font-size:11px;padding:8px 10px}.checking-panel{padding:14px}.check-question{font-size:16px}}
+
+/* v11 static auth gate and study preferences */
+body:not(.auth-ok)>.shell{display:none!important}body.auth-ok #authGate{display:none!important}
+#authGate{min-height:100vh;padding:28px 15px;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 15% 20%,#1d3b49,transparent 35%),radial-gradient(circle at 80% 80%,#30243e,transparent 40%),#0b0e19;color:#edf5ff}
+.auth-card{width:min(480px,100%);padding:36px;border-radius:24px;background:#141d2f;border:1px solid #435b73;box-shadow:0 24px 65px #0007}.auth-emblem{font-size:25px;font-weight:900;letter-spacing:2px}.auth-emblem span{color:#92e3d3}.auth-sub{font-size:10px;letter-spacing:2px;color:#88d9c9;margin:12px 0 22px}.auth-card h1{font-size:25px;line-height:1.2;margin:0 0 13px}.auth-card p{color:#b7c6d9;line-height:1.6;font-size:13px}.auth-card label{font-weight:750;font-size:13px;display:block;margin:18px 0 8px}.auth-card input{display:block;width:100%;margin-top:7px;padding:13px 14px;background:#0b1425;border:1px solid #3c5772;border-radius:10px;color:#fff;outline:none;font:inherit}.auth-card input:focus{border-color:#a3ecda;box-shadow:0 0 0 2px #a3ecda33}.auth-card button{width:100%;padding:14px;margin-top:20px;background:#2d5c64;color:#fff;border:1px solid #80b5b1;font-weight:850;border-radius:12px}.auth-card button:disabled{opacity:.6}.auth-card .auth-warning{font-size:11px;color:#97aac2;margin-top:22px}.auth-card #authMessage{min-height:22px;color:#ffafaf;font-size:12px;margin-top:10px}
+.study-mini{display:flex;align-items:center;gap:10px;flex-wrap:wrap;border:1px solid #35485a;background:#141f31;padding:10px 12px;border-radius:12px;margin:14px 0;color:#b8cfe0;font-size:12px}.study-mini .btn{margin-left:auto}.prefs-card{padding:16px;border:1px solid #3c5268;border-radius:15px;margin-top:20px;background:#101a2b}.settings-label{font-size:13px;color:#a9e8d8;font-weight:800;display:block;margin:18px 0 9px}.prefs-option{display:flex;align-items:start;gap:13px;padding:14px;border:1px solid #34445e;background:#142034;margin:9px 0;border-radius:12px}.prefs-option input{margin-top:5px;accent-color:#9cddca}.prefs-option span{display:flex;flex-direction:column;gap:6px}.prefs-option small{color:#9eaac5;line-height:1.5}.prefs-option.toggle{margin-top:20px}.batch-answer{margin:13px 0;border-radius:14px;padding:16px;border:1px solid #354c64;background:#142035}.batch-answer-head{display:flex;justify-content:space-between;align-items:start;gap:10px;margin-bottom:12px}.batch-points{display:flex;flex-direction:column;gap:6px;margin:12px 0}.batch-points p{margin:0;padding:8px 10px;border-radius:7px;font-size:12px;line-height:1.5}.batch-known{color:#b1e6c9}.batch-unknown{color:#ebc89c}@media(max-width:600px){.auth-card{padding:22px}.auth-card h1{font-size:22px}}
 </style>
 
 </head>
-<body><div class="shell"><header class="topbar"><div><div class="eyebrow">Post-Classical • 600–1450 CE</div><div class="logo">HISTORY<span style="color:#849bb6">//</span><b>QUEST</b></div></div><div class="profile"><span class="statpill">⚡ LV <strong id="level">1</strong></span><span class="statpill">✨ <strong id="xp">0</strong> XP</span><span class="statpill">✅ <strong id="mastered">0</strong>/110</span></div></header><div class="layout"><aside class="sidebar"><div class="sectiontitle">Choose Your Mission</div><div class="sidebar-nav" id="navigation"><button type="button" class="navbtn active" data-mode="recall"><span class="emoji">⚔️</span> Recall Battle</button><button type="button" class="navbtn" data-mode="mcq"><span class="emoji">🎯</span> MCQ Arena</button><button type="button" class="navbtn" data-mode="seq"><span class="emoji">✍️</span> SEQ Boss</button><button type="button" class="navbtn" data-mode="exam"><span class="emoji">⏱️</span> Mock Exam</button><button type="button" class="navbtn" data-mode="arena"><span class="emoji">🏆</span> Rival Arena</button><button type="button" class="navbtn" data-mode="codex"><span class="emoji">📜</span> Codex</button><button type="button" class="navbtn" data-mode="settings"><span class="emoji">⚙️</span> AI Settings</button></div><div class="side-section"><div class="sectiontitle">Map • Select a region</div><select class="field" id="region"><option value="all">🌍 All regions · 110 terms</option></select></div><div class="side-section"><div class="sectiontitle">Choose target order</div><select class="field" id="order"><option value="weak">🎯 Weakest / unseen first</option><option value="random">🎲 Random</option><option value="sequential">📘 PDF order</option></select></div><div class="side-section"><div class="sectiontitle">Mastery progress</div><div class="meta tiny"><span id="progressText">0 / 110 mastered</span><span id="percentText">0%</span></div><div class="bar" style="margin-top:9px"><div id="progressBar" style="width:0%"></div></div><p class="tiny">💾 Autosaves in this browser. Offline grading works without internet; AI grading needs a compatible API and network access.</p><p class="tiny">🏆 Arena spans all 9 historical regions, regardless of the region selector.</p><button class="btn ghost small" id="clearProgress">Reset saved progress</button></div></aside><main class="maincard" id="game" aria-live="polite"></main></div><footer class="footer">Built from your 10-page Post-Classical Vocabulary handout · 110 terms · 276 recall points · AI grading optional · 25-round Rival Arena · Flashcard Lab · Vocabulary Walkthrough · Save history & backups · Story Mode with narration & memory tricks · Practice questions are not official exam questions.</footer></div><div id="toastSlot" role="status"></div>
+<body><section id="authGate" aria-labelledby="authTitle"><div class="auth-card"><div class="auth-emblem">HISTORY<span>//</span>QUEST</div><div class="auth-sub">PRIVATE STUDY GATE · v11</div><h1 id="authTitle">Unlock your history workspace</h1><p>Enter your account name and passphrase to open the game and decrypt saved AI settings.</p><form id="authForm" autocomplete="off"><label>Username<input id="authUser" name="username" autocomplete="username" autocapitalize="none" required spellcheck="false" placeholder="Account name"></label><label>Passphrase<input id="authPassword" name="password" type="password" autocomplete="current-password" required placeholder="Secret passphrase"></label><button id="authSubmit" type="submit">Unlock HISTORY//QUEST</button><div id="authMessage" role="alert" aria-live="polite"></div></form><p class="auth-warning">This lock is a convenience gate, not server-side authentication. GitHub Pages remains publicly readable. API configuration is encrypted locally, not stored in the repository.</p></div></section><div class="shell"><header class="topbar"><div><div class="eyebrow">Post-Classical • 600–1450 CE</div><div class="logo">HISTORY<span style="color:#849bb6">//</span><b>QUEST</b></div></div><div class="profile"><span class="statpill">⚡ LV <strong id="level">1</strong></span><span class="statpill">✨ <strong id="xp">0</strong> XP</span><span class="statpill">✅ <strong id="mastered">0</strong>/110</span></div></header><div class="layout"><aside class="sidebar"><div class="sectiontitle">Choose Your Mission</div><div class="sidebar-nav" id="navigation"><button type="button" class="navbtn active" data-mode="recall"><span class="emoji">⚔️</span> Recall Battle</button><button type="button" class="navbtn" data-mode="mcq"><span class="emoji">🎯</span> MCQ Arena</button><button type="button" class="navbtn" data-mode="seq"><span class="emoji">✍️</span> SEQ Boss</button><button type="button" class="navbtn" data-mode="exam"><span class="emoji">⏱️</span> Mock Exam</button><button type="button" class="navbtn" data-mode="arena"><span class="emoji">🏆</span> Rival Arena</button><button type="button" class="navbtn" data-mode="codex"><span class="emoji">📜</span> Codex</button><button type="button" class="navbtn" data-mode="settings"><span class="emoji">⚙️</span> AI Settings</button><button type="button" class="navbtn" data-mode="preferences"><span class="emoji">🛠️</span> Study Preferences</button><button type="button" class="navbtn" id="lockGameNav"><span class="emoji">🔒</span> Lock / Sign out</button></div><div class="side-section"><div class="sectiontitle">Map • Select a region</div><select class="field" id="region"><option value="all">🌍 All regions · 110 terms</option></select></div><div class="side-section"><div class="sectiontitle">Choose target order</div><select class="field" id="order"><option value="weak">🎯 Weakest / unseen first</option><option value="random">🎲 Random</option><option value="sequential">📘 PDF order</option></select></div><div class="side-section"><div class="sectiontitle">Mastery progress</div><div class="meta tiny"><span id="progressText">0 / 110 mastered</span><span id="percentText">0%</span></div><div class="bar" style="margin-top:9px"><div id="progressBar" style="width:0%"></div></div><p class="tiny">💾 Autosaves in this browser. Offline grading works without internet; AI grading needs a compatible API and network access.</p><p class="tiny">🏆 Arena spans all 9 historical regions, regardless of the region selector.</p><button class="btn ghost small" id="clearProgress">Reset saved progress</button></div></aside><main class="maincard" id="game" aria-live="polite"></main></div><footer class="footer">Built from your 10-page Post-Classical Vocabulary handout · 110 terms · 276 recall points · AI grading optional · 25-round Rival Arena · Flashcard Lab · Vocabulary Walkthrough · Save history & backups · Story Mode with narration & memory tricks · Practice questions are not official exam questions.</footer></div><div id="toastSlot" role="status"></div>
 <script>
 'use strict';
 const BANK={"items":[{"id":1,"term":"Byzantine Empire","original":"Eastern portion of the Roman Empire which survived beyond the collapse of the Roman Empire with its capital at Constantinople; retained Mediterranean culture, particularly Greek; eventually taken over by the Ottomans (500ce to 1453ce)","page":1,"points":[{"text":"Eastern Roman Empire survived the collapse of Western Rome","keys":"eastern|east & roman|rome & survived|collapse|fall|continued|outlasted|remained|survive|survival|part|portion|half|section|side|empire|byzantine|western|west"},
@@ -453,11 +459,75 @@ let save={xp:0,records:{},exams:0,best:0,arenaRuns:0,arenaWins:0,arenaBest:0,are
 try{let prev=JSON.parse(localStorage.getItem(KEY)||'null');if(prev&&prev.records)save={...save,...prev};}catch{}
 let S={mode:'recall',topic:'all',order:'weak',current:null,selected:null,checked:false,answer:'',lastResult:null,round:0,quest:null,seq:null,seqText:'',quizCount:0,exam:null,examTimer:null,search:'',toastTimer:null,arena:null,arenaText:'',arenaFeedback:null,gradeBusy:false};
 function persist(){try{localStorage.setItem(KEY,JSON.stringify(save));}catch{}}
-// Key intentionally never saved in localStorage. Endpoint/model/preferences are saved separately.
-const AI_KEY='history_quest_ai_settings_v3';
+/* v11 — No API credentials or provider URLs are committed. All provider settings are
+ * encrypted locally with AES-256-GCM. A Web Crypto key is derived from the login
+ * passphrase; only ciphertext is persisted. Static GitHub Pages is NOT true access control. */
+const AI_KEY='history_quest_ai_v11_encrypted';
+const AI_LEGACY_KEY='history_quest_ai_settings_v3';
+const LOGIN_USER='xd';
+const LOGIN_SALT='3duMc2RvEjZeqAIADlQVGA==';
+const LOGIN_VERIFIER='THBDSqXpmHZFOyFNxeRlaYCsdmxxzZmEtkGU6E6G6u0=';
+const ENCRYPTION_SALT='/ayjj6fINZht7CmxK83p4w==';
+const AUTH_ITER=320000;
+let AUTH_OK=false, AI_SECRET_KEY=null;
 let AI={mode:'offline',endpoint:'',model:'',key:''};
-try{let cfg=JSON.parse(localStorage.getItem(AI_KEY)||'null');if(cfg&&typeof cfg==='object')AI={...AI,mode:cfg.mode==='ai'?'ai':'offline',endpoint:String(cfg.endpoint||''),model:String(cfg.model||'')};}catch{}
-function persistAI(){try{localStorage.setItem(AI_KEY,JSON.stringify({mode:AI.mode,endpoint:AI.endpoint,model:AI.model}));}catch{}}
+const bytesToBase64=(bytes)=>btoa(String.fromCharCode(...bytes));
+const base64ToBytes=(text)=>Uint8Array.from(atob(text),x=>x.charCodeAt(0));
+async function loginDerive(pass,salt,usage){
+ const material=await crypto.subtle.importKey('raw',new TextEncoder().encode(pass),'PBKDF2',false,['deriveBits','deriveKey']);
+ if(usage==='verify')return new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',salt:base64ToBytes(salt),iterations:AUTH_ITER,hash:'SHA-256'},material,256));
+ return crypto.subtle.deriveKey({name:'PBKDF2',salt:base64ToBytes(salt),iterations:AUTH_ITER,hash:'SHA-256'},material,{name:'AES-GCM',length:256},false,['encrypt','decrypt']);
+}
+async function persistAI(){
+ if(!AUTH_OK||!AI_SECRET_KEY)throw Error('Sign in before saving API credentials.');
+ const data={mode:AI.mode,endpoint:AI.endpoint.trim(),model:AI.model.trim(),key:AI.key.trim()};
+ const iv=crypto.getRandomValues(new Uint8Array(12));
+ const encrypted=await crypto.subtle.encrypt({name:'AES-GCM',iv},AI_SECRET_KEY,new TextEncoder().encode(JSON.stringify(data)));
+ localStorage.setItem(AI_KEY,JSON.stringify({v:1,iv:bytesToBase64(iv),data:bytesToBase64(new Uint8Array(encrypted))}));
+ // Remove the old plain-text endpoint only AFTER ciphertext storage succeeded.
+ localStorage.removeItem(AI_LEGACY_KEY);
+}
+async function unlockAI(pass){
+ AI_SECRET_KEY=await loginDerive(pass,ENCRYPTION_SALT,'aes');
+ const raw=localStorage.getItem(AI_KEY);
+ if(raw){
+   const vault=JSON.parse(raw);
+   if(!vault||vault.v!==1)throw Error('Encrypted API vault version is unsupported.');
+   const dec=await crypto.subtle.decrypt({name:'AES-GCM',iv:base64ToBytes(vault.iv)},AI_SECRET_KEY,base64ToBytes(vault.data));
+   const cfg=JSON.parse(new TextDecoder().decode(dec));
+   AI={mode:cfg.mode==='ai'?'ai':'offline',endpoint:String(cfg.endpoint||''),model:String(cfg.model||''),key:String(cfg.key||'')};
+   localStorage.removeItem(AI_LEGACY_KEY);
+ }else{
+   const old=localStorage.getItem(AI_LEGACY_KEY);
+   if(old){const cfg=JSON.parse(old);AI={mode:cfg.mode==='ai'?'ai':'offline',endpoint:String(cfg.endpoint||''),model:String(cfg.model||''),key:''};}
+   await persistAI();
+ }
+}
+async function authenticate(e){
+ e?.preventDefault(); const name=$('authUser').value.trim();const pass=$('authPassword').value;
+ const button=$('authSubmit'),message=$('authMessage');button.disabled=true;button.textContent='Unlocking…';
+ try{
+   if(!window.crypto?.subtle)throw Error('This browser requires HTTPS and Web Crypto.');
+   const digest=await loginDerive(pass,LOGIN_SALT,'verify');
+   const expected=base64ToBytes(LOGIN_VERIFIER);
+   let diff=digest.length^expected.length;for(let i=0;i<digest.length;i++)diff|=digest[i]^expected[i];
+   if(name!==LOGIN_USER||diff!==0){message.textContent='Incorrect username or passphrase.';return;}
+   AUTH_OK=true;
+   try{await unlockAI(pass);}
+   catch(err){AI_SECRET_KEY=null;AUTH_OK=false;throw Error('Could not unlock encrypted settings. Your existing data was not changed. '+safeError(err));}
+   $('authPassword').value='';document.body.classList.add('auth-ok');message.textContent='';render();
+ }catch(err){message.textContent=safeError(err);}
+ finally{pass&&void 0;button.disabled=false;button.textContent='Unlock HISTORY//QUEST';}
+}
+function lockGame(){
+ AUTH_OK=false;AI_SECRET_KEY=null;AI={mode:'offline',endpoint:'',model:'',key:''};
+ S.answer='';S.seqText='';S.arenaText='';S.checked=false;S.lastResult=null;S.checking=null;
+ if(typeof stopSpeech==='function')stopSpeech();
+ if(S.mode==='story'&&typeof storyStop==='function')storyStop(true);
+ if(window.speechSynthesis)window.speechSynthesis.cancel();
+ $('game').replaceChildren();S.mode='recall';document.body.classList.remove('auth-ok');$('authPassword').value='';$('authMessage').textContent='';$('authPassword').focus();
+}
+
 function evalLabel(){return AI.mode==='ai'?'🤖 AI / fallback if unavailable':'🧩 Offline keyword checker';}
 function safeError(e){return String(e?.message||e||'Unknown error').slice(0,200);}
 function normalizeEndpoint(value){let s=String(value||'').trim().replace(/\/+$/,'');if(!s)return '';
@@ -609,19 +679,63 @@ function checkingPanel(term,g){
  return `<section class="checking-panel" aria-live="polite"><div class="check-heading"><span>🧠 Checking · Verify missing ideas</span><span class="tag">AI follow-up</span></div>${c.notice&&c.phase==='asking'?`<p class="check-notice">${enc(c.notice)}</p>`:''}${content}${c.phase!=='done'?'<button class="btn ghost small" id="checkingReveal" type="button">Reveal full key / finish checking</button>':''}</section>`;
 }
 
+
+function studyOptions(){
+ if(!save.studyPrefs||typeof save.studyPrefs!=='object')save.studyPrefs={feedback:'each',hidePoints:false,batchSize:10};
+ return save.studyPrefs;
+}
+function batching(){return studyOptions().feedback==='batch';}
+function studyNotice(){let p=studyOptions();return `<div class="study-mini"><span>🔎 Feedback: <b>${p.feedback==='batch'?'Together after '+p.batchSize+' questions':'After each answer'}</b></span><span>${p.hidePoints?'🙈 Checkpoints hidden':'🎨 SPICET cues visible'}</span><button class="btn ghost small" type="button" id="studyQuickSettings">Change</button></div>`;}
+function bindStudyNotice(){let b=$('studyQuickSettings');if(b)b.onclick=()=>setMode('preferences');}
+function studyPrefsScreen(){
+ updateHud();const p=studyOptions();$('game').innerHTML=`<div class="kicker"><span class="tag mint">🛠️ STUDY PREFERENCES</span><span class="tag gold">v11</span></div><div class="h1">Control how much you see</div>
+ <p class="subtitle">Choose when you see the model answers. Hide all checkpoint hints and their count while answering if you want a true closed-book challenge.</p>
+ <div class="prefs-card"><label class="settings-label">When should the answer appear?</label><label class="prefs-option"><input type="radio" name="feedbackTiming" value="each" ${p.feedback==='each'?'checked':''}><span><b>After every answer</b><small>See feedback immediately and use AI Checking right away.</small></span></label><label class="prefs-option"><input type="radio" name="feedbackTiming" value="batch" ${p.feedback==='batch'?'checked':''}><span><b>All together at the end</b><small>Complete a set first. Review scores and full model answers only after finishing the set. Mock Exam already works this way; Rival Arena reveals at match end.</small></span></label>
+ <label class="settings-label" for="prefsBatch">Questions per set</label><select id="prefsBatch" class="field"><option value="5" ${p.batchSize===5?'selected':''}>5 questions</option><option value="10" ${p.batchSize===10?'selected':''}>10 questions (recommended)</option><option value="20" ${p.batchSize===20?'selected':''}>20 questions</option></select>
+ <label class="prefs-option toggle"><input type="checkbox" id="prefsHide" ${p.hidePoints?'checked':''}><span><b>Hide key-point hints and counts</b><small>Hide the SPICET colored cues, checkpoint numbering, and the number of points before you answer. Full answers can still be reviewed afterwards.</small></span></label>
+ </div><div class="buttons"><button class="btn primary" id="prefsSave">Save preferences</button><button class="btn ghost" id="prefsRecall">Start Recall →</button><button class="btn ghost" id="prefsMCQ">MCQ Arena →</button></div>
+ <p class="tiny">Changing feedback timing starts a new question set. Previously earned scores and history remain intact. These preferences are saved in your existing study progress and JSON backups.</p>`;
+ $('prefsSave').onclick=()=>{p.feedback=document.querySelector('input[name="feedbackTiming"]:checked').value;p.batchSize=Number($('prefsBatch').value);p.hidePoints=$('prefsHide').checked;persist();S.recallBatch=null;S.recallBatchView=false;S.batchReviewItem=false;S.mcqBatch=[];S.mcqBatchView=false;S.seqBatch=[];S.seqBatchView=false;toast('Study preferences saved');studyPrefsScreen();};
+ $('prefsRecall').onclick=()=>setMode('recall');$('prefsMCQ').onclick=()=>setMode('mcq');
+}
+function renderRecallBatch(){
+ const batch=S.recallBatch||{rows:[]};S.recallBatchView=true;
+ $('game').innerHTML=`<div class="kicker"><span class="tag mint">📚 BATCH ANSWER REVIEW</span><span class="tag">${batch.rows.length} questions</span></div><div class="h1">Reveal all answers together</div><p class="subtitle">This is the first time results from this set are shown. Review the model ideas, or select one term to run AI Checking on any missing points.</p>${batch.rows.map((row,i)=>{
+ const t=byId[row.termId],g=row.grade;
+ return `<section class="batch-answer"><div class="batch-answer-head"><b>${i+1}. ${enc(t.term)}</b><span class="tag ${g.ratio>=.8?'mint':'gold'}">${Math.round(g.ratio*100)}%</span></div><p class="tiny">Your response: ${enc(row.answer)}</p><div class="batch-points">${t.points.map((p,j)=>`<p class="${g.hits[j]?'batch-known':'batch-unknown'}">${g.hits[j]?'✓':'○'} ${enc(p.text)}</p>`).join('')}</div><button class="btn ghost small" data-batch-review="${i}">Review / AI Checking →</button></section>`;
+ }).join('')}<div class="buttons"><button class="btn primary" id="recallNewBatch">Start next set →</button></div>`;
+ document.querySelectorAll('[data-batch-review]').forEach(b=>b.onclick=()=>{
+  let row=batch.rows[Number(b.dataset.batchReview)];S.current=byId[row.termId];S.answer=row.answer;S.lastResult=row.grade;S.checked=true;S.batchReviewItem=true;
+  const g=row.grade;S.checking={termId:row.termId,phase:'offer',missing:g.hits.map((v,i)=>v?-1:i).filter(i=>i>=0),questions:[],index:0,answers:[],initialScore:Math.round(g.ratio*100),eventId:row.eventId||null,error:'',notice:''};
+  renderRecall();
+ });
+ $('recallNewBatch').onclick=()=>{S.recallBatch={rows:[]};S.recallBatchView=false;S.batchReviewItem=false;S.checked=false;S.current=null;S.answer='';S.lastResult=null;S.checking=null;renderRecall();};
+}
+function renderMCQBatch(){
+ const batch=S.mcqBatch||[];
+ $('game').innerHTML=`<div class="kicker"><span class="tag mint">🎯 MCQ ANSWER REVEAL</span><span class="tag">${batch.length} questions</span></div><div class="h1">Your answer key</div><p class="subtitle">All MCQ answers are revealed together at the end of the set.</p>${batch.map((r,i)=>`<section class="batch-answer"><div class="batch-answer-head"><b>Q${i+1}. ${enc(r.q.q)}</b><span class="tag ${r.selected===r.q.a?'mint':'gold'}">${r.selected===r.q.a?'✓ Correct':'○ Review'}</span></div><p class="tiny">Your choice: ${enc(r.q.options[r.selected]||'')}</p><p><b>Correct:</b> ${enc(r.q.options[r.q.a])}</p><p class="tiny">${enc(r.q.why)}</p></section>`).join('')}<button class="btn primary" id="mcqNewBatch">Start next set →</button>`;
+ $('mcqNewBatch').onclick=()=>{S.mcqBatch=[];S.mcqBatchView=false;S.quest=null;S.checked=false;showMCQ();};
+}
+function renderSEQBatch(){
+ const batch=S.seqBatch||[];
+ $('game').innerHTML=`<div class="kicker"><span class="tag mint">✍️ SEQ ANSWER REVEAL</span><span class="tag">${batch.length} questions</span></div><div class="h1">Your model-answer review</div><p class="subtitle">The full SEQ rubric is shown only after the end of your practice set.</p>${batch.map((r,i)=>`<section class="batch-answer"><div class="batch-answer-head"><b>Q${i+1}. ${enc(r.question)}</b><span class="tag ${r.grade.ratio>=.8?'mint':'gold'}">${Math.round(r.grade.ratio*100)}%</span></div><p class="tiny">Your response: ${enc(r.answer)}</p>${r.points.map((p,j)=>`<p class="${r.grade.hits[j]?'batch-known':'batch-unknown'}">${r.grade.hits[j]?'✓':'○'} ${enc(p.term)}: ${enc(p.text)}</p>`).join('')}</section>`).join('')}<button class="btn primary" id="seqNewBatch">Start next SEQ set →</button>`;
+ $('seqNewBatch').onclick=()=>{S.seqBatch=[];S.seqBatchView=false;S.seq=null;S.checked=false;S.seqText='';renderSeq();};
+}
 function renderRecall(){
+ if(batching()&&S.recallBatchView&&!S.batchReviewItem)return renderRecallBatch();
  let x=S.current;if(!x){x=S.round===0&&masteredCount()===0&&S.topic==='all'?byId[6]:getTarget(null);S.current=x;}
  let r=rec(x.id),done=S.checked,grade=S.lastResult;
  let health=done?Math.max(0,Math.ceil((1-grade.ratio)*4)):4;
  let percent=r.best?Math.round(r.best*100):0,c=checkingState(),finished=done&&(!c||!c.missing.length||c.phase==='done');
  const hints=`<div class="spicet-guide"><b>Think in directions, not exact phrases</b><div class="hintrow">${x.points.map((p,i)=>`<div class="spicet-pill" title="${enc(SPICET_LABELS[pointMeta(x.id,i).spicet])}"><small>${i+1}</small>${pointHintHtml(x.id,i)}</div>`).join('')}</div>${SPICET_LEGEND}</div>`;
  const rubric=done?`<div class="rubric"><div class="rubrichead"><b>🧩 Key-idea breakdown</b><span class="tiny">${finished?'All reference ideas are available below.':'Uncertain ideas stay hidden until Checking is finished.'}</span></div>${x.points.map((p,i)=>`<div class="rubricitem ${grade.hits[i]?'success':'missed'}"><span class="indicator">${grade.hits[i]?'✓':'?'}</span><div class="pointbody">${pointHintHtml(x.id,i,true)}${finished||grade.hits[i]?`<div class="point-detail">${enc(p.text)}</div>`:`<div class="minor">Possibly missing · Try a short Checking question.</div>`}</div></div>`).join('')}</div>`:'';
- $('game').innerHTML=`<div class="battlehead"><div class="enemy"><div class="enemyicon">🧠</div><div><div class="boxlabel">Enemy ${x.id} / 110 · ${enc(x.group)}</div><div class="enemyname">Memory Wraith · ${x.points.length} key ideas</div></div></div><div style="text-align:right"><div class="boxlabel">Enemy HP</div><div class="hearts">${'♥'.repeat(health)}<span style="opacity:.2">${'♥'.repeat(4-health)}</span></div></div></div>
+ $('game').innerHTML=`<div class="battlehead"><div class="enemy"><div class="enemyicon">🧠</div><div><div class="boxlabel">Enemy ${x.id} / 110 · ${enc(x.group)}</div><div class="enemyname">Memory Wraith · ${studyOptions().hidePoints?'secret checkpoints':x.points.length+' key ideas'}</div></div></div><div style="text-align:right"><div class="boxlabel">Enemy HP</div><div class="hearts">${'♥'.repeat(health)}<span style="opacity:.2">${'♥'.repeat(4-health)}</span></div></div></div>
  <div class="kicker"><span class="tag mint">⚔️ CONCEPT-FIRST RECALL</span><span class="tag">PDF page ${x.page}</span><span class="tag gold">BEST ${percent}%</span></div><div class="promptline">Explain this term from memory</div><div class="bigterm">${enc(x.term)}</div>
- <div class="subtitle">Answer in your own English. If your meaning is substantially correct, AI will count it even if you omit exact wording. The colored cues guide your thinking without showing the full reference.</div>
- ${!done?`<p class="qualitynote">Scoring: ${enc(evalLabel())}</p>${hints}<textarea class="answer" id="answer" autocomplete="off" spellcheck="true" placeholder="Explain the main idea in natural English. Short paraphrases are welcome.">${enc(S.answer||'')}</textarea><div class="voicehint">🎤 Microphone available in supported browsers. You can also type.</div><div class="buttons"><button class="btn primary" id="check">⚔️ Check my understanding</button>${voiceButtons()}<button class="btn ghost" id="skip">Skip →</button></div>`:
- `<div class="callout"><b>${Math.round(grade.ratio*100)}% · ${grade.found}/${grade.total} ideas</b> — ${grade.ratio>=.8?'Concept mastered.':grade.ratio>=.5?'You understand part of the concept; a short check may recover more.':'Try the short Checking prompts for ideas you may have omitted.'}</div>${gradeInfo(grade)}${rubric}${checkingPanel(x,grade)}${finished?`<details class="source"><summary>📖 Full original handout (page ${x.page})</summary><div class="sourcetext">${enc(x.original)}</div></details>`:`<p class="tiny">Full reference text becomes available after Checking or when you choose to reveal it.</p>`}<div class="buttons"><button class="btn primary" id="next">Next enemy →</button><button class="btn ghost" id="retry">Retry this term</button>${finished?'<button class="btn ghost" id="hearModel">🔈 Hear key points</button>':''}</div>`}
- <div class="formrow"><button class="btn ghost small" id="star">${r.star?'★ Starred for review':'☆ Star / revisit'}</button><span class="tiny">${r.tries} attempts · ${r.known?'✅ Mastered':'📍 In progress'}</span></div>${!done?sourceHtml(x):''}`;
+ <div class="subtitle">Answer in your own English. If your meaning is substantially correct, AI will count it even if you omit exact wording. You can hide or show colored cues in Study Preferences.</div>
+ ${studyNotice()}${!done?`<p class="qualitynote">Scoring: ${enc(evalLabel())}</p>${studyOptions().hidePoints?'':hints}<textarea class="answer" id="answer" autocomplete="off" spellcheck="true" placeholder="Explain the main idea in natural English. Short paraphrases are welcome.">${enc(S.answer||'')}</textarea><div class="voicehint">🎤 Microphone available in supported browsers. You can also type.</div><div class="buttons"><button class="btn primary" id="check">⚔️ Check my understanding</button>${voiceButtons()}<button class="btn ghost" id="skip">Skip →</button></div>`:
+ `<div class="callout"><b>${Math.round(grade.ratio*100)}% · ${grade.found}/${grade.total} ideas</b> — ${grade.ratio>=.8?'Concept mastered.':grade.ratio>=.5?'You understand part of the concept; a short check may recover more.':'Try the short Checking prompts for ideas you may have omitted.'}</div>${gradeInfo(grade)}${rubric}${checkingPanel(x,grade)}${finished?`<details class="source"><summary>📖 Full original handout (page ${x.page})</summary><div class="sourcetext">${enc(x.original)}</div></details>`:`<p class="tiny">Full reference text becomes available after Checking or when you choose to reveal it.</p>`}<div class="buttons"><button class="btn primary" id="next">Next enemy →</button><button class="btn ghost" id="retry">Retry this term</button>${S.batchReviewItem?'<button class="btn ghost" id="backBatch">← All batch answers</button>':''}${finished?'<button class="btn ghost" id="hearModel">🔈 Hear key points</button>':''}</div>`}
+ <div class="formrow"><button class="btn ghost small" id="star">${r.star?'★ Starred for review':'☆ Star / revisit'}</button><span class="tiny">${r.tries} attempts · ${r.known?'✅ Mastered':'📍 In progress'}</span></div>${!done&&!studyOptions().hidePoints?sourceHtml(x):''}`;
+ bindStudyNotice();
  if(!done){
   $('answer').addEventListener('input',e=>S.answer=e.target.value);
   $('check').onclick=async()=>{
@@ -632,12 +746,23 @@ function renderRecall(){
    S.lastResult=g;S.checked=true;
    const eventCount=save.history?.length||0;markAttempt(x.id,g);
    const event=save.history?.slice(eventCount).find(e=>e.type==='recall'&&e.termId===x.id);
+   if(batching()){
+    S.recallBatch=S.recallBatch||{rows:[]};
+    S.recallBatch.rows.push({termId:x.id,answer,grade:JSON.parse(JSON.stringify(g)),eventId:event?.id||null});
+    S.checking=null;S.checked=false;S.lastResult=null;S.answer='';
+    if(S.recallBatch.rows.length>=studyOptions().batchSize){S.recallBatchView=true;S.batchReviewItem=false;renderRecallBatch();}
+    else {let prior=x.id;const used=new Set(S.recallBatch.rows.map(x=>x.termId));let next=getTarget(prior);
+      if(used.has(next.id)){const unused=scope().filter(t=>!used.has(t.id));if(unused.length)next=S.order==='sequential'?unused[0]:pick(unused);}
+      S.current=next;S.round++;renderRecall();}
+    return;
+   }
    S.checking={termId:x.id,phase:'offer',missing:g.hits.map((hit,i)=>hit?-1:i).filter(i=>i>=0),questions:[],index:0,answers:[],initialScore:Math.round(g.ratio*100),eventId:event?.id||null,error:'',notice:''};
    renderRecall();
   };
   $('speak').onclick=()=>speechTo('answer');$('listen').onclick=()=>say(x.term);$('skip').onclick=()=>nextRecall();
  }else{
   $('next').onclick=()=>nextRecall();
+  if(S.batchReviewItem){const back=$('backBatch');if(back)back.onclick=()=>{S.batchReviewItem=false;S.checking=null;S.recallBatchView=true;renderRecallBatch();};}
   $('retry').onclick=()=>{S.checked=false;S.answer='';S.lastResult=null;S.checking=null;renderRecall();};
   if(finished)$('hearModel').onclick=()=>say(x.points.map(p=>p.text+'.').join(' '));
   if(c&&c.missing.length){
@@ -651,22 +776,22 @@ function renderRecall(){
  $('star').onclick=()=>{putrec(x.id,{star:!rec(x.id).star});renderRecall();};
 }
 
-function nextRecall(){let old=S.current?.id;S.current=getTarget(old);S.answer='';S.lastResult=null;S.checked=false;S.checking=null;S.round++;renderRecall();}
+function nextRecall(){if(S.batchReviewItem){S.batchReviewItem=false;S.recallBatchView=true;S.checking=null;return renderRecallBatch();}let old=S.current?.id;S.current=getTarget(old);S.answer='';S.lastResult=null;S.checked=false;S.checking=null;S.round++;renderRecall();}
 function choiceQuestion(){let list=scope();let target=pick(list), peers=shuffled(list.filter(x=>x.id!==target.id&&x.group===target.group));if(peers.length<3)peers=shuffled(list.filter(x=>x.id!==target.id));let distract=peers.slice(0,3);let opts=shuffled([target,...distract].map(x=>x.term));let isDesc=Math.random()<.6;let prompt=isDesc?`Which term best matches the following description?`:`Which statement correctly describes ${target.term}?`;
 if(!isDesc){let wrong=shuffled(peers).slice(0,3).map(x=>pick(x.points).text);let options=shuffled([pick(target.points).text,...wrong]);let answer=options.findIndex(s=>target.points.some(p=>p.text===s));return {q:prompt,options,a:answer,why:target.original,ids:[target.id],kind:'generated',target:target.id};}
 return {q:prompt,lead:target.original,options:opts,a:opts.indexOf(target.term),why:target.points.map(p=>p.text).join('; '),ids:[target.id],kind:'generated',target:target.id};}
 function contextQuestion(){let avail=BANK.extra.filter(q=>S.topic==='all'||q.ids.some(id=>byId[id].group===S.topic));if(!avail.length)return choiceQuestion();let q=pick(avail);let order=shuffled([0,1,2,3]);return {...q,options:order.map(i=>q.options[i]),a:order.indexOf(q.a),kind:'context',target:q.ids[0]};}
 function freshQuestion(){return Math.random()<.68?contextQuestion():choiceQuestion();}
-function showMCQ(){let q=S.quest;if(!q){q=freshQuestion();S.quest=q;S.selected=null;S.checked=false;}let already=S.checked;
-$('game').innerHTML=`<div class="kicker"><span class="tag mint">🎯 MCQ ARENA</span><span class="tag">${enc(S.topic==='all'?'All regions':S.topic)}</span><span class="tag gold">${S.quizCount+1} solved / current run</span></div><div class="h1">Choose the right answer.</div><p class="subtitle">Exam-style recall + application. Questions are based on your uploaded handout.</p><div class="rule"></div><div class="prompt">${enc(q.q)}</div>${q.lead?`<div class="callout">${enc(q.lead)}</div>`:''}<div style="margin-top:15px">${q.options.map((o,i)=>`<button class="answeroption ${already?(i===q.a?'correct':S.selected===i?'incorrect':''):''}" data-choice="${i}" ${already?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span>${enc(o)}</span></button>`).join('')}</div>${already?`<div class="feedback"><b>${S.selected===q.a?'✅ Correct!':'❌ Not quite.'}</b><div style="margin-top:5px">${enc(q.why)}</div></div><div class="buttons"><button class="btn primary" id="nextQuestion">Next question →</button><button class="btn ghost" id="jumpRecall">Review this term ⚔️</button></div>`:`<div class="tiny" style="margin-top:16px">Select A, B, C, or D. The explanation appears immediately.</div>`}`;
-document.querySelectorAll('[data-choice]').forEach(b=>b.onclick=()=>{if(S.checked)return;let i=+b.dataset.choice;S.selected=i;S.checked=true;S.quizCount++;const r=rec(q.target);putrec(q.target,{tries:r.tries+1,last:Date.now(),best:Math.max(r.best,i===q.a?.72:0)});if(i===q.a)addXp(18);showMCQ();});if(already){$('nextQuestion').onclick=()=>{S.quest=null;S.checked=false;showMCQ();};$('jumpRecall').onclick=()=>{let target=byId[q.target];setMode('recall');S.current=target;renderRecall();};}}
+function showMCQ(){if(batching()&&S.mcqBatchView)return renderMCQBatch();let q=S.quest;if(!q){q=freshQuestion();S.quest=q;S.selected=null;S.checked=false;}let already=S.checked;
+$('game').innerHTML=`<div class="kicker"><span class="tag mint">🎯 MCQ ARENA</span><span class="tag">${enc(S.topic==='all'?'All regions':S.topic)}</span><span class="tag gold">${S.quizCount+1} solved / current run</span></div><div class="h1">Choose the right answer.</div><p class="subtitle">Exam-style recall + application. Questions are based on your uploaded handout.</p><div class="rule"></div><div class="prompt">${enc(q.q)}</div>${q.lead?`<div class="callout">${enc(q.lead)}</div>`:''}<div style="margin-top:15px">${q.options.map((o,i)=>`<button class="answeroption ${already?(i===q.a?'correct':S.selected===i?'incorrect':''):''}" data-choice="${i}" ${already?'disabled':''}><span class="letter">${'ABCD'[i]}</span><span>${enc(o)}</span></button>`).join('')}</div>${already?`<div class="feedback"><b>${S.selected===q.a?'✅ Correct!':'❌ Not quite.'}</b><div style="margin-top:5px">${enc(q.why)}</div></div><div class="buttons"><button class="btn primary" id="nextQuestion">Next question →</button><button class="btn ghost" id="jumpRecall">Review this term ⚔️</button></div>`:`<div class="tiny" style="margin-top:16px">Select A, B, C, or D. ${batching()?'Answers are revealed together after the set.':'The explanation appears immediately.'}</div>`}`;
+document.querySelectorAll('[data-choice]').forEach(b=>b.onclick=()=>{if(S.checked)return;let i=+b.dataset.choice;S.selected=i;S.checked=true;S.quizCount++;const r=rec(q.target);putrec(q.target,{tries:r.tries+1,last:Date.now(),best:Math.max(r.best,i===q.a?.72:0)});if(i===q.a)addXp(18);if(batching()){S.mcqBatch=S.mcqBatch||[];S.mcqBatch.push({q:JSON.parse(JSON.stringify(q)),selected:i});S.mcqBatchView=S.mcqBatch.length>=studyOptions().batchSize;S.quest=null;S.checked=false;}showMCQ();});if(already){$('nextQuestion').onclick=()=>{S.quest=null;S.checked=false;showMCQ();};$('jumpRecall').onclick=()=>{let target=byId[q.target];setMode('recall');S.current=target;renderRecall();};}}
 const SEQ_RUBRIC=[[[6,[0,1,2,3]]],[[1,[0,1,2]],[2,[2,3]]],[[31,[1]],[32,[0,1]],[30,[0,1]]],[[39,[0,1,2]],[45,[0,1,2]],[41,[0,1]]],[[24,[1,2,3,4,5]]],[[50,[0,1,2]],[51,[0,2]],[52,[0,2]]],[[60,[1,2,3]],[62,[1,2,3,4]]],[[102,[0,1]],[63,[0,2]],[104,[1]]],[[90,[0,1]],[94,[0,1]]],[[79,[0,1]],[80,[0,1]],[77,[0]]],[[44,[0,1,2]],[45,[0,1,2]],[47,[1,2]]],[[106,[0,1]],[107,[0,1]],[108,[0]],[109,[0,1]],[110,[0]]],[[65,[0]],[57,[0,1]],[66,[0]],[73,[0,1]]],[[6,[0,1]],[7,[0,1]]],[[98,[0,1,2]],[86,[0,1,2]]],[[39,[0,2]],[38,[0]],[79,[0,1]]]];
 function availableSeq(){return BANK.seq.map((q,i)=>({...q,n:i})).filter(q=>S.topic==='all'||q.ids.some(id=>byId[id].group===S.topic));}
 function rubricPoints(q){let ix=SEQ_RUBRIC[q.n]||q.ids.map(id=>[id,[0,1]]);return ix.flatMap(([id,inds])=>inds.filter(n=>n<byId[id].points.length).map(n=>({...byId[id].points[n],term:byId[id].term,id})));}
-function seqQuestion(q){let rubric=rubricPoints(q);return `<div class="kicker"><span class="tag gold">✍️ SEQ BOSS</span><span class="tag">${enc(q.title)}</span></div><div class="h1">${enc(q.title)}</div><div class="prompt">${enc(q.q)}</div><div class="callout"><b>SEQ tip:</b> Answer in short English sentences or bullet points. Use specific examples and explain <b>what, why, and how</b>. Key ideas matter more than perfect grammar.</div><div class="hintrow"><span class="hintpill">${rubric.length} rubric checkpoints</span><span class="hintpill">Short phrases accepted</span></div>`;}
-function renderSeq(){let q=S.seq;if(!q){q=pick(availableSeq());S.seq=q;S.checked=false;S.lastResult=null;S.seqText='';}let rp=rubricPoints(q);
+function seqQuestion(q){let rubric=rubricPoints(q);return `<div class="kicker"><span class="tag gold">✍️ SEQ BOSS</span><span class="tag">${enc(q.title)}</span></div><div class="h1">${enc(q.title)}</div><div class="prompt">${enc(q.q)}</div><div class="callout"><b>SEQ tip:</b> Answer in short English sentences or bullet points. Use specific examples and explain <b>what, why, and how</b>. Key ideas matter more than perfect grammar.</div><div class="hintrow">${studyOptions().hidePoints?'':`<span class="hintpill">${rubric.length} rubric checkpoints</span>`}<span class="hintpill">Short phrases accepted</span></div>`;}
+function renderSeq(){if(batching()&&S.seqBatchView)return renderSEQBatch();let q=S.seq;if(!q){q=pick(availableSeq());S.seq=q;S.checked=false;S.lastResult=null;S.seqText='';}let rp=rubricPoints(q);
 $('game').innerHTML=seqQuestion(q)+(!S.checked?`<textarea class="answer" id="seqAnswer" placeholder="Write your Short Essay / Structured Essay response here.\nUse concrete terms, a cause, and an effect where possible.">${enc(S.seqText)}</textarea><div class="buttons"><button class="btn primary" id="seqCheck">Submit SEQ →</button>${voiceButtons()}<button class="btn ghost" id="seqSkip">Different SEQ</button></div><p class="tiny">${enc(evalLabel())} · Estimated practice feedback only, not an official teacher grade.</p>`:`<div class="callout"><b>📊 Checkpoints detected: ${S.lastResult.found}/${S.lastResult.total}</b>. ${S.lastResult.found===S.lastResult.total?'All detected.': 'The list below shows what you may need to add.'} Your real SEQ grade also depends on explanation and accuracy.</div>${gradeInfo(S.lastResult)}<div class="rubric">${rp.map((p,i)=>`<div class="rubricitem ${S.lastResult.hits[i]?'success':'missed'}"><span class="indicator">${S.lastResult.hits[i]?'✓':'○'}</span><div class="pointbody"><b>${enc(p.term)}:</b> ${enc(p.text)}</div></div>`).join('')}</div><details class="source" open><summary>✅ Model key-point answer (not necessarily the only valid answer)</summary><div class="sourcetext">${rp.map(p=>`• ${enc(p.term)} — ${enc(p.text)}.`).join('<div style="height:7px"></div>')}</div></details><div class="buttons"><button class="btn primary" id="seqNext">Next SEQ →</button><button class="btn ghost" id="seqRetry">Rewrite this one</button></div>`);
-if(!S.checked){$('seqAnswer').oninput=e=>S.seqText=e.target.value;$('seqCheck').onclick=async()=>{if(wordCount($('seqAnswer').value)<4){toast('Write at least a short English response.');return;}if(S.gradeBusy)return;S.gradeBusy=true;S.seqText=$('seqAnswer').value;busyButton($('seqCheck'));stopSpeech();let result=await assessAnswer(S.seqText,rp,'SEQ: '+q.q);S.gradeBusy=false;if(S.mode!=='seq'||S.seq?.n!==q.n)return;S.lastResult=result;S.checked=true;addXp(9+Math.round(30*result.ratio));renderSeq();};$('speak').onclick=()=>speechTo('seqAnswer');$('listen').onclick=()=>say(q.q);$('seqSkip').onclick=()=>{S.seq=null;renderSeq();};}else{$('seqNext').onclick=()=>{S.seq=null;renderSeq();};$('seqRetry').onclick=()=>{S.checked=false;S.lastResult=null;S.seqText='';renderSeq();};}}
+if(!S.checked){$('seqAnswer').oninput=e=>S.seqText=e.target.value;$('seqCheck').onclick=async()=>{if(wordCount($('seqAnswer').value)<4){toast('Write at least a short English response.');return;}if(S.gradeBusy)return;S.gradeBusy=true;S.seqText=$('seqAnswer').value;busyButton($('seqCheck'));stopSpeech();let result=await assessAnswer(S.seqText,rp,'SEQ: '+q.q);S.gradeBusy=false;if(S.mode!=='seq'||S.seq?.n!==q.n)return;S.lastResult=result;S.checked=true;addXp(9+Math.round(30*result.ratio));if(batching()){S.seqBatch=S.seqBatch||[];S.seqBatch.push({question:q.q,answer:S.seqText,grade:JSON.parse(JSON.stringify(result)),points:rp});S.seqBatchView=S.seqBatch.length>=studyOptions().batchSize;S.seq=null;S.checked=false;S.lastResult=null;S.seqText='';}renderSeq();};$('speak').onclick=()=>speechTo('seqAnswer');$('listen').onclick=()=>say(q.q);$('seqSkip').onclick=()=>{S.seq=null;renderSeq();};}else{$('seqNext').onclick=()=>{S.seq=null;renderSeq();};$('seqRetry').onclick=()=>{S.checked=false;S.lastResult=null;S.seqText='';renderSeq();};}}
 function timeStr(ms){let x=Math.max(0,Math.ceil(ms/1000));return `${String(Math.floor(x/60)).padStart(2,'0')}:${String(x%60).padStart(2,'0')}`;}
 function startExam(){let targeted=scope(),extras=shuffled(BANK.extra.filter(q=>S.topic==='all'||q.ids.some(id=>byId[id].group===S.topic))).slice(0,8).map(q=>{let a=shuffled([0,1,2,3]);return {...q,options:a.map(i=>q.options[i]),a:a.indexOf(q.a),target:q.ids[0],kind:'context'};});while(extras.length<10)extras.push(choiceQuestion());let seqs=shuffled(availableSeq()).slice(0,2);if(seqs.length<2)seqs=[...seqs,...shuffled(BANK.seq.map((q,i)=>({...q,n:i}))).slice(0,2-seqs.length)];S.exam={questions:[...shuffled(extras).slice(0,10),...seqs.map(q=>({...q,kind:'seq'}))],idx:0,responses:[],start:Date.now(),ends:Date.now()+12*60*1000,done:false};if(S.examTimer)clearInterval(S.examTimer);S.examTimer=setInterval(()=>{if(!S.exam||S.exam.done){clearInterval(S.examTimer);S.examTimer=null;return;}let left=S.exam.ends-Date.now(),node=$('examTime');if(node){node.textContent=timeStr(left);node.classList.toggle('urgent',left<120000);}if(left<=0)finishExam();},1000);renderExam();}
 function examNext(response){let e=S.exam;e.responses.push(response);e.idx++;if(e.idx>=e.questions.length)finishExam();else renderExam();}
@@ -678,7 +803,7 @@ if(isSeq){$('submitSEQ').onclick=async()=>{let t=$('examSEQ').value;if(wordCount
 function renderCodex(){let list=scope().filter(t=>(t.term+' '+t.original).toLowerCase().includes(S.search.toLowerCase()));let correct=scope().filter(t=>rec(t.id).known).length;
 $('game').innerHTML=`<div class="kicker"><span class="tag mint">📜 TERM CODEX</span><span class="tag">${scope().length} total in this region</span></div><div class="h1">Memory Atlas</div><p class="subtitle">Search any of the 110 PDF terms, jump directly into recall, and track what you can explain. Your key-point rubric comes from the attached handout.</p><input class="field" id="termSearch" placeholder="Search term or definition..." value="${enc(S.search)}"><div class="codextop"><span class="tag mint">${correct} mastered</span><span class="tag gold">${scope().length-correct} remaining</span><button class="btn ghost small" id="showStar">⭐ Only starred</button><button class="btn ghost small" id="showAll">Clear search</button></div><div class="codexlist" id="codexlist">${list.map(x=>`<button class="codexitem" data-goto="${x.id}"><div class="index"># ${x.id} · PDF p.${x.page}</div><div class="title">${enc(x.term)}</div><div class="status">${rec(x.id).known?'✅ MASTERED':rec(x.id).tries?`🔁 ${rec(x.id).tries} attempts`:'○ NEW'} · ${x.points.length} checkpoints ${rec(x.id).star?'· ★':''}</div></button>`).join('')||'<p class="tiny">No matching terms.</p>'}</div>`;
 $('termSearch').oninput=e=>{S.search=e.target.value;renderCodex();$('termSearch').focus();$('termSearch').setSelectionRange(S.search.length,S.search.length);};document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>{let t=byId[+b.dataset.goto];setMode('recall');S.current=t;renderRecall();});$('showStar').onclick=()=>{let stars=scope().filter(t=>rec(t.id).star);if(!stars.length){toast('Star terms in Recall mode first.');return;}S.search='';$('codexlist').innerHTML=stars.map(x=>`<button class="codexitem" data-goto="${x.id}"><div class="index">★ #${x.id}</div><div class="title">${enc(x.term)}</div><div class="status">Review starred term →</div></button>`).join('');document.querySelectorAll('[data-goto]').forEach(b=>b.onclick=()=>{setMode('recall');S.current=byId[+b.dataset.goto];renderRecall();});};$('showAll').onclick=()=>{S.search='';renderCodex();};}
-/* The adapter accepts OpenAI-compatible /chat/completions endpoints. It does not proxy or store keys. */
+/* The adapter accepts OpenAI-compatible /chat/completions endpoints. Config is encrypted locally. */
 function renderSettings(){
  $('game').innerHTML=`<div class="kicker"><span class="tag mint">⚙️ AI GRADING</span><span class="tag gold">OPTIONAL</span></div><div class="h1">Connect your own AI API</div>
  <p class="subtitle">Use AI to judge English paraphrases and historical key points. Works in Recall Battle, SEQ Boss, Mock Exam SEQs and Rival Arena. The free offline keyword grader is always available.</p>
@@ -686,15 +811,15 @@ function renderSettings(){
  <label class="wide">Grading method<select id="aiMode" class="field"><option value="offline" ${AI.mode==='offline'?'selected':''}>🧩 Offline keyword scoring (no network)</option><option value="ai" ${AI.mode==='ai'?'selected':''}>🤖 Custom AI scoring (offline fallback)</option></select></label>
  <label class="wide">OpenAI-compatible endpoint or /v1 base URL<input type="url" id="aiEndpoint" class="field" autocomplete="off" spellcheck="false" placeholder="https://your-provider.example/v1/chat/completions" value="${enc(AI.endpoint)}"></label>
  <label>Model name<input id="aiModel" class="field" autocomplete="off" spellcheck="false" placeholder="model-id" value="${enc(AI.model)}"></label>
- <label>API key (optional for local model; NEVER saved)<input type="password" id="aiKey" class="field" autocomplete="off" spellcheck="false" placeholder="Paste API key for this session" value="${enc(AI.key)}"></label></div>
- <div class="buttons"><button class="btn primary" id="saveAI">Save settings</button><button class="btn ghost" id="testAI">🔌 Test connection</button><button class="btn ghost" id="hideAIKey">Clear key from memory</button></div>
- <div id="aiStatus" class="qualitynote">${enc(evalLabel())}. Endpoint and model persist locally in this browser, but the API key remains only in the current page's memory.</div>
- <div class="securitynote">⚠️ <b>Privacy and key security:</b> Only use providers you trust. When AI mode is enabled, your English answer, the question and PDF-derived rubric are sent directly from your browser to the endpoint you enter. Never share a file containing an embedded API key; this game does not embed one. Do not deploy a public web page that accepts a private paid API key without your own authenticated backend. Requests may fail if your provider rejects browser CORS requests (especially from file://). Use a trusted CORS-enabled provider or your own backend proxy. Billing depends on your provider.</div>
+ <label>API key (encrypted in this browser)<input type="password" id="aiKey" class="field" autocomplete="off" spellcheck="false" placeholder="Paste API key to encrypt and remember" value="${enc(AI.key)}"></label></div>
+ <div class="buttons"><button class="btn primary" id="saveAI">Save settings</button><button class="btn ghost" id="testAI">🔌 Test connection</button><button class="btn ghost" id="hideAIKey">Erase saved API key</button></div>
+ <div id="aiStatus" class="qualitynote">${enc(evalLabel())}. Endpoint, model, and API key are encrypted together in this browser; they unlock only after login.</div>
+ <div class="securitynote">⚠️ <b>Privacy and key security:</b> Only use providers you trust. When AI mode is enabled, your English answer, the question and PDF-derived rubric are sent directly from your browser to the endpoint you enter. Never share a file containing an embedded API key; this game does not embed one. The public static site is not truly authenticated: encryption protects local at-rest settings, but any script running on the same site can access keys after unlock. For high-value paid keys, use a backend proxy with actual authentication. Requests may fail if your provider rejects browser CORS requests (especially from file://). Use a trusted CORS-enabled provider or your own backend proxy. Billing depends on your provider.</div>
  <p class="tiny">Compatibility: OpenAI-style POST /v1/chat/completions using a model name, messages and an optional Bearer API key. Provider-specific native protocols are not supported. Bad/slow API responses fall back to offline scoring, clearly labeled.</p>`;
- function gather(){AI.mode=$('aiMode').value;AI.endpoint=$('aiEndpoint').value.trim();AI.model=$('aiModel').value.trim();AI.key=$('aiKey').value.trim();persistAI();}
- $('saveAI').onclick=()=>{gather();try{if(AI.endpoint)normalizeEndpoint(AI.endpoint);$('aiStatus').textContent='✅ Settings saved. '+evalLabel()+'. API key stays in memory only.';toast('AI preferences saved.');}catch(e){$('aiStatus').textContent='⚠️ '+safeError(e);}};
+ function gather(){AI.mode=$('aiMode').value;AI.endpoint=$('aiEndpoint').value.trim();AI.model=$('aiModel').value.trim();AI.key=$('aiKey').value.trim();}
+ $('saveAI').onclick=async()=>{gather();try{if(AI.endpoint)normalizeEndpoint(AI.endpoint);await persistAI();$('aiStatus').textContent='✅ AES-GCM encrypted API settings saved in this browser. '+evalLabel();toast('Encrypted API settings saved.');}catch(e){$('aiStatus').textContent='⚠️ '+safeError(e);}};
  $('testAI').onclick=async()=>{gather();busyButton($('testAI'));$('aiStatus').textContent='Contacting configured API…';try{let g=await requestAiGrade('The Ka’ba is an important shrine in Mecca.',[{text:'An important shrine located in Mecca'}],'Test only');$('aiStatus').textContent=`✅ Connected; returned ${g.found}/${g.total} rubric hits. The API is ready.`;}catch(e){$('aiStatus').textContent='❌ Connection failed: '+safeError(e)+'. Check URL, key, model and CORS policy.';}finally{$('testAI').disabled=false;$('testAI').textContent='🔌 Test connection';}};
- $('hideAIKey').onclick=()=>{AI.key='';$('aiKey').value='';$('aiStatus').textContent='API key cleared from page memory.';};
+ $('hideAIKey').onclick=async()=>{AI.key='';$('aiKey').value='';try{await persistAI();$('aiStatus').textContent='API key erased from encrypted local vault and page memory.';}catch(e){$('aiStatus').textContent='⚠️ '+safeError(e);}};
 }
 // Fixed 25 terms per arena match. 110-term full-coverage cycles mean no repeats between
 // matches until a cycle is exhausted (except at the cycle boundary); then recent
@@ -756,7 +881,7 @@ function scoreArena(g,term){
  const opponent=rivalScore(term,a.rival);
  let yourPts=Math.round(g.ratio*100),rivalPts=Math.round(opponent.ratio*100);
  a.results.push({id:term.id,group:term.group,player:yourPts,rival:rivalPts,method:g.method,hitCount:g.found,total:g.total});
- a.idx++;S.arenaFeedback={grade:g,id:term.id,rival:opponent};S.arenaText='';
+ a.idx++;S.arenaFeedback=batching()?null:{grade:g,id:term.id,rival:opponent};S.arenaText='';
  // Progress and recent rounds are persisted, so even a reload resumes the match.
  if(a.idx>=25)finishArena();else{save.arenaActive=a;persist();renderArena();}
 }
@@ -770,10 +895,11 @@ function finishArena(){
  save.arenaActive=null;persist();S.arenaFeedback=null;renderArena();
 }
 function arenaScoreboard(a){
+ if(batching()&&!a.done)return `<div class="callout">🔒 Scores are hidden until all 25 rounds are complete.</div>`;
  const your=a.results.reduce((s,r)=>s+r.player,0),foe=a.results.reduce((s,r)=>s+r.rival,0);
  return `<div class="arena-scores"><div class="arena-player"><div class="boxlabel">⚔️ YOU</div><div class="score-num">${your}</div><div class="tiny">${a.results.length} of 25 concepts</div></div><div class="arena-rival"><div class="boxlabel">🤖 ${enc(a.rival.name.toUpperCase())}</div><div class="score-num">${foe}</div><div class="tiny">Ability ${Math.round(a.rival.skill*100)} · simulated rival</div></div></div>`;
 }
-function arenaTimeline(a){return `<div class="arena-rounds" aria-label="25-question progress">${a.ids.map((_,i)=>`<span class="${i<a.idx?(a.results[i].player>=60?'played':'failed'):i===a.idx?'active-round':''}" title="Round ${i+1}">${i+1}</span>`).join('')}</div>`;}
+function arenaTimeline(a){if(batching()&&!a.done)return `<div class="tiny">${a.idx} of 25 rounds submitted · results hidden</div>`;return `<div class="arena-rounds" aria-label="25-question progress">${a.ids.map((_,i)=>`<span class="${i<a.idx?(a.results[i].player>=60?'played':'failed'):i===a.idx?'active-round':''}" title="Round ${i+1}">${i+1}</span>`).join('')}</div>`;}
 function arenaReport(a){
  const your=a.results.reduce((s,r)=>s+r.player,0),foe=a.results.reduce((s,r)=>s+r.rival,0);
  let losers=a.results.filter(r=>r.player<80).sort((x,y)=>x.player-y.player);
@@ -782,7 +908,7 @@ function arenaReport(a){
  ${arenaScoreboard(a)}<div class="summarygrid"><div class="metric"><b>${Math.round(your/25)}%</b><span>Your idea coverage</span></div><div class="metric"><b>${Math.round(foe/25)}%</b><span>Rival idea coverage</span></div><div class="metric"><b>${a.results.filter(r=>r.player>=80).length}/25</b><span>Mastered this match</span></div></div>
  <p class="qualitynote"><b>Region coverage:</b> ${groups.map(([g,n])=>`${enc(g)} (${n})`).join(' · ')}</p>
  <div class="buttons"><button class="btn primary" id="arenaAgain">🏆 Start next 25</button><button class="btn ghost" id="arenaToRecall">⚔️ Practice weak concepts</button></div>
- <div class="rubric"><b>Concepts to revisit</b>${(losers.length?losers:a.results.slice(0,8)).map(r=>`<div class="review"><b>#${r.id} ${enc(byId[r.id].term)} · ${r.player}%</b><div>${enc(byId[r.id].points.map(p=>p.text).join(' · '))}</div></div>`).join('')}</div>
+ <div class="rubric"><b>${batching()?'Complete 25-round answer key':'Concepts to revisit'}</b>${(batching()?a.results:(losers.length?losers:a.results.slice(0,8))).map(r=>`<div class="review"><b>#${r.id} ${enc(byId[r.id].term)} · ${r.player}%</b><div>${enc(byId[r.id].points.map(p=>p.text).join(' · '))}</div></div>`).join('')}</div>
  <p class="tiny">🏅 Wins: ${save.arenaWins||0}/${save.arenaRuns||0} · best average ${save.arenaBest||0}%. The rival is a simulated opponent, not another human or a live LLM.</p>`;
 }
 function renderArena(){
@@ -806,10 +932,10 @@ function renderArena(){
  <div class="buttons"><button class="btn primary" id="arenaContinue">➡️ Round ${a.idx+1} of 25</button><button class="btn ghost" id="arenaLeave">Exit (progress saved)</button></div>`;
  $('arenaContinue').onclick=()=>{S.arenaFeedback=null;renderArena();};$('arenaLeave').onclick=()=>setMode('recall');return;}
  let term=byId[a.ids[a.idx]];
- $('game').innerHTML=`<div class="battlehead"><div class="enemy"><div class="enemyicon">🏆</div><div><div class="boxlabel">Match #${(save.arenaRuns||0)+1} · Round ${a.idx+1} of 25</div><div class="enemyname">${enc(term.group)} · ${term.points.length} key ideas</div></div></div><span class="tag gold">${enc(evalLabel())}</span></div>
+ $('game').innerHTML=`<div class="battlehead"><div class="enemy"><div class="enemyicon">🏆</div><div><div class="boxlabel">Match #${(save.arenaRuns||0)+1} · Round ${a.idx+1} of 25</div><div class="enemyname">${enc(term.group)} · ${studyOptions().hidePoints?'Hidden key ideas':term.points.length+' key ideas'}</div></div></div><span class="tag gold">${enc(evalLabel())}</span></div>
  ${arenaScoreboard(a)}${arenaTimeline(a)}
- <div class="promptline">Explain this concept in English</div><div class="bigterm">${enc(term.term)}</div><p class="subtitle">Recall every important point in your own words. No need for perfect grammar. Rival scores are revealed after you submit.</p>
- <div class="hintrow">${term.points.map((_,i)=>`<span class="hintpill">Secret checkpoint ${i+1}</span>`).join('')}</div>
+ <div class="promptline">Explain this concept in English</div><div class="bigterm">${enc(term.term)}</div><p class="subtitle">Recall every important point in your own words. No need for perfect grammar. ${batching()?'Scores and answers are revealed after the 25-round match.':'Rival scores are revealed after you submit.'}</p>
+ ${studyOptions().hidePoints?'':`<div class="hintrow">${term.points.map((_,i)=>`<span class="hintpill">Secret checkpoint ${i+1}</span>`).join('')}</div>`}
  <textarea class="answer" id="arenaAnswer" spellcheck="true" placeholder="Explain: what it was, where/when, causes, effects, or key features...">${enc(S.arenaText)}</textarea>
  <div class="buttons"><button class="btn primary" id="arenaSubmit">⚔️ Submit / challenge rival</button>${voiceButtons()}<button class="btn warn" id="arenaSkip">I don't know · 0 points</button><button class="btn ghost" id="arenaExit">Exit (progress saved)</button></div>
  <p class="tiny">⏩ Skipping gives you 0 points but the rival still gets a score. New match terms are preselected to prevent rerolls.</p>`;
@@ -839,10 +965,10 @@ document.addEventListener('keydown',e=>{if(['INPUT','TEXTAREA','SELECT'].include
  * This script is inlined after the game core so older local v3 saves are available.
  */
 const DATA_KEY='history_quest_progress_stable';
-const DATA_VERSION=10;
+const DATA_VERSION=11;
 const initialLegacy=save;
 const freshSave=()=>({xp:0,records:{},exams:0,best:0,arenaRuns:0,arenaWins:0,arenaBest:0,
- arenaCycle:[],arenaRecent:[],arenaSeenCounts:{},arenaActive:null,arenaHistory:[],history:[],flashcards:{},flashRecent:[],flashRewardClaims:{},flashSession:null,vocabWalk:null,story:null,schemaVersion:DATA_VERSION});
+ arenaCycle:[],arenaRecent:[],arenaSeenCounts:{},arenaActive:null,arenaHistory:[],history:[],flashcards:{},flashRecent:[],flashRewardClaims:{},flashSession:null,vocabWalk:null,story:null,studyPrefs:{feedback:'each',hidePoints:false,batchSize:10},schemaVersion:DATA_VERSION});
 function normalizeSave(value){
  if(!value||typeof value!=='object'||Array.isArray(value)||!value.records||typeof value.records!=='object'||Array.isArray(value.records))throw Error('Unrecognized save format');
  return {...freshSave(),...value,records:value.records,history:Array.isArray(value.history)?value.history:[],
@@ -850,7 +976,7 @@ function normalizeSave(value){
    flashcards:value.flashcards&&typeof value.flashcards==='object'&&!Array.isArray(value.flashcards)?value.flashcards:{},
    flashRecent:Array.isArray(value.flashRecent)?value.flashRecent:[],
    flashRewardClaims:value.flashRewardClaims&&typeof value.flashRewardClaims==='object'&&!Array.isArray(value.flashRewardClaims)?value.flashRewardClaims:{},
-   flashSession:value.flashSession||null,vocabWalk:value.vocabWalk&&typeof value.vocabWalk==='object'&&!Array.isArray(value.vocabWalk)?value.vocabWalk:null,schemaVersion:DATA_VERSION};
+   flashSession:value.flashSession||null,studyPrefs:value.studyPrefs&&typeof value.studyPrefs==='object'?{feedback:value.studyPrefs.feedback==='batch'?'batch':'each',hidePoints:!!value.studyPrefs.hidePoints,batchSize:[5,10,20].includes(Number(value.studyPrefs.batchSize))?Number(value.studyPrefs.batchSize):10}:{feedback:'each',hidePoints:false,batchSize:10},vocabWalk:value.vocabWalk&&typeof value.vocabWalk==='object'&&!Array.isArray(value.vocabWalk)?value.vocabWalk:null,schemaVersion:DATA_VERSION};
 }
 function eventId(){return 'hq-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,11);}
 function legacyArenaToEvents(data){
@@ -1151,7 +1277,7 @@ function flashCurrent(){let s=flashSession();return s&&!s.finished?byId[s.ids[s.
 function flashHints(term,s){
  if(!s.hints)return '';
  if(s.style==='reverse')return `<div class="flash-hint"><b>Hint 1</b> · The answer begins with <strong>${enc(term.term.slice(0,1))}</strong>${s.hints>=2?`<br><b>Hint 2</b> · ${enc(term.group)} · ${term.term.split(/\s+/).length} word(s)`:''}</div>`;
- return `<div class="flash-hint"><b>Hint 1</b> · ${term.points.length} rubric checkpoints · ${enc(term.group)}${s.hints>=2?`<br><b>Hint 2</b> · ${term.points.map(p=>enc(p.text.split(' ').slice(0,2).join(' '))+'…').join(' · ')}`:''}</div>`;
+ return `<div class="flash-hint"><b>Hint 1</b> · ${studyOptions().hidePoints?'Rubric count hidden':term.points.length+' rubric checkpoints'} · ${enc(term.group)}${s.hints>=2?`<br><b>Hint 2</b> · ${term.points.map(p=>enc(p.text.split(' ').slice(0,2).join(' '))+'…').join(' · ')}`:''}</div>`;
 }
 function flashReveal(){let s=flashSession();if(!s||s.phase!=='front')return;
  s.phase='revealed';flashSaveSession();renderFlash();}
@@ -1244,7 +1370,7 @@ function flashCardView(){
  const remembered=term.points.map((p,i)=>`<div class="flash-point"><span>${i+1}</span><div>${enc(p.text)}</div></div>`).join('');
  const original=sourceHtml(term);
  const question=isReverse?`<div class="flash-prompt">Which historical term matches these clues?</div><div class="flash-reverse-clue">${enc(term.points.slice(0,2).map(p=>p.text).join(' · '))}</div>`:
- `<div class="flash-prompt">Explain this term in English</div><div class="flash-bigterm">${enc(term.term)}</div><p class="tiny">Remember ${term.points.length} essential points. Grammar does not need to match the handout exactly.</p>`;
+ `<div class="flash-prompt">Explain this term in English</div><div class="flash-bigterm">${enc(term.term)}</div><p class="tiny">${studyOptions().hidePoints?'Recall the essential ideas without hints.':'Remember '+term.points.length+' essential points.'} Grammar does not need to match the handout exactly.</p>`;
  const g=s.grade,graded=show&&s.style==='active';
  const rawRating=graded?(g.ratio>=.8?'know':g.ratio>=.5?'partial':'forgot'):null;
  const suggested=rawRating==='know'&&s.hints?'partial':rawRating;
@@ -1700,7 +1826,13 @@ render=function(){
  const badge=$('walkNavStatus');if(badge){let w=save.vocabWalk;badge.textContent=walkReady()?'✓':`${Math.min(TERMS.length,(w?.requiredBatch||0)*WALK_BATCH_SIZE)}/${TERMS.length}`;}
 };
 
-render();
+
+// Login is required before the app renders. Public static code is not a secure backend.
+const __renderV11=render;
+render=function(){if(!AUTH_OK)return;if(S.mode==='preferences')return studyPrefsScreen();return __renderV11();};
+$('authForm').addEventListener('submit',authenticate);
+$('lockGameNav').onclick=lockGame;
+$('authUser').focus();
 </script>
 
 </body></html>
